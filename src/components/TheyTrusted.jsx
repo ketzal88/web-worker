@@ -5,6 +5,7 @@ import { Animated } from "react-animated-css";
 const TheyTrusted = () => {
   const classes = useStyles();
   const [animate, setAnimate] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [animate2, setAnimate2] = useState(false);
 
   return (

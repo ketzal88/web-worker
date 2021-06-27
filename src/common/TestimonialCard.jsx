@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 
 const TestimonialCard = (props) => {
-    const {testimonial, image, name, job}= props
+  // const {testimonial, image, name, job}= props
   const classes = useStyles();
 
   return (

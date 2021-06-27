@@ -1,0 +1,5 @@
+@import "PaisanosFinal.css";
+
+video {
+  object-fit: cover;
+}

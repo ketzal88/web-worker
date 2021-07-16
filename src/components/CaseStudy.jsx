@@ -14,8 +14,8 @@ const CaseStudy = (props) => {
           </Link>
         </div>
       </div>
-      <div className="d-flex align-items-center">
-        <h3 className="d-flex align-items-center">MODO</h3>
+      <div className={classes.container}>
+        <h3>MODO</h3>
         {newCase && <h3 className={classes.tag}>NEW!</h3>}
       </div>
       <p className={classes.text}>
@@ -31,8 +31,14 @@ const useStyles = makeStyles(() => ({
     "margin-bottom": "74px",
     marginLeft: "20px",
     marginRight: "20px",
+    "@media (max-width: 769px)": {
+      "margin-bottom": "35px",
+      maxWidth: "40%",
+    },
     "@media (max-width: 479px)": {
       "margin-bottom": "35px",
+      maxWidth: "100%",
+      width: "360px",
     },
   },
   image: {
@@ -76,6 +82,10 @@ const useStyles = makeStyles(() => ({
       "background-color": "#fff",
       color: " #000",
     },
+  },
+  container: {
+    display: "flex",
+    alignItems: "center",
   },
   tag: {
     display: "flex",

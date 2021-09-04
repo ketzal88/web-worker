@@ -30,14 +30,14 @@ const Header = () => {
             className={classes.logo}
           />
         </Link>
-        <Animated
+        {/* <Animated
           animationIn="fadeInUp"
           animationInDuration={1500}
           isVisible={isTrue}
           className={classes.tooltipDiv}
         >
           <div className={classes.textTooltip}>Worker</div>
-        </Animated>
+        </Animated> */}
         <nav role="navigation" className={classes.containerMenu}>
           <Animated
             animationIn="fadeInDown"

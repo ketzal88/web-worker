@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import TestimonialCard from "../common/TestimonialCard";
+import TESTIMONIALS from '../data/testimonios'
 
 const TestimonialHome = () => {
   const classes = useStyles();
@@ -8,12 +9,12 @@ const TestimonialHome = () => {
   return (
     <div className={classes.section}>
       <h1 className={classes.title}>
-        What our clients are saying
+        Lo que opinan nuestros clientes
       </h1>
       <div className={classes.container}>
 
-                {[1,2,3,4,5,6].map(()=>{
-                    return <TestimonialCard/>
+                {TESTIMONIALS.map((testimonio, index) => {
+                    return <TestimonialCard testimonio={testimonio} key={index}/>
                 })}
         </div>
     </div>

@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 
 const CaseStudy = (props) => {
+  const { cas } = props;
   const classes = useStyles();
-  const { newCase } = props;
+  
   return (
     <div className={`${classes.section}`}>
       <div className={classes.image}>
         <div className={classes.image2}>
-          <Link to="/projects/modo" className={classes.seeCase}>
-            SEE CASE STUDY
+          <Link to={`/projects/${cas.link}`} className={classes.seeCase}>
+            Ver Caso
           </Link>
         </div>
       </div>
       <div className={classes.container}>
-        <h3>MODO</h3>
-        {newCase && <h3 className={classes.tag}>NEW!</h3>}
+        <h3>{cas.client}</h3>
+        {cas.new && <h3 className={classes.tag}>NEW!</h3>}
       </div>
-      <p className={classes.text}>
-        The app that aims to replace cash for digital payments in Argentina.
-      </p>
+      <p className={classes.text}>{cas.description}</p>
     </div>
   );
 };

@@ -18,9 +18,9 @@ const Home = () => {
     <>
       <Header />
       <BannerHero/>
-      <CasesStudy newCase={true} />
       <CasesStudy newCase={false} />
-      <VideoContainer
+      {/* <CasesStudy newCase={false} /> */}
+      {/* <VideoContainer
         setAnimate={setAnimate}
         containerStyle={classes.section}
         url="https://assets.website-files.com/5e3dcab63f5462821f6fc673/5e99fc77220e3e338ae3b582_team video-transcode.mp4"
@@ -54,7 +54,7 @@ const Home = () => {
             </div>
           </Animated>
         </div>
-      </VideoContainer>
+      </VideoContainer> */}
       <TestimonialHome />
       <TheyTrusted />
       <ContactUs />

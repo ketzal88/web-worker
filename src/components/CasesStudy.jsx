@@ -1,17 +1,17 @@
 import React from "react";
 import CaseStudy from "./CaseStudy";
 import { makeStyles } from "@material-ui/styles";
+import CASES_STUDY from '../data/cases'
 
 const CasesStudy = (props) => {
-  const { newCase } = props;
   const classes = useStyles();
   return (
     <>
       <div className={classes.section}>
         <div className={classes.section2}>
           <div className={classes.caseContainer}>
-            {[1, 2, 3].map((index) => {
-              return <CaseStudy key={index} newCase={newCase} />;
+            {CASES_STUDY.map((cas, index) => { // reemplazar con un json de datos
+              return <CaseStudy key={index} cas={cas} />;
             })}
           </div>
         </div>

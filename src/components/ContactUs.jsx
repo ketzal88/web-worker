@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => ({
     "margin-bottom": 0,
     "padding-right": 0,
     "padding-left": 0,
-    "background-color": "#ff204e",
+    "background-color": "#044bd9",
     "line-height": "20px",
     width: "100%",
   },

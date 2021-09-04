@@ -41,7 +41,7 @@ const BannerHero = () => {
               Hablemos
             </Link>
           </div>
-          <div className={classes.containerSocial}>
+          {/* <div className={classes.containerSocial}>
             <div className={classes.text}>Algunos de nuestros Trabajos</div>
             <Link
               to="https://dribbble.com/PaisanosDesigners"
@@ -64,14 +64,14 @@ const BannerHero = () => {
             >
               
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className={classes.containerRight}>
           <div className={classes.containerImage}>
             <img
-              src="https://assets.website-files.com/5e3dcab63f5462821f6fc673/5f1094b9dc229c8ff6ab9934_paisanos%20logo.png"
+              src="https://wkr.com.ar/assets/img/back-header.png"
               sizes="(max-width: 767px) 100vw, (max-width: 991px) 797.9296875px, 81vw"
-              alt="Paisanos Logo"
+              alt="Worker Logo"
               className={classes.image}
             />
           </div>
@@ -167,6 +167,7 @@ const useStyles = makeStyles(() => ({
   titleTopDiv: {
     display: "flex",
     "align-items": "center",
+    "margin-top": 20,
   },
   titleTopText: {
     "padding-left": "5px",
@@ -188,6 +189,7 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     "margin-bottom": "20px",
+    "margin-top": "70px",
     "font-family": `'Made tommy personal use', sans-serif`,
     color: "#232222",
     "font-size": "5rem",
@@ -300,7 +302,7 @@ const useStyles = makeStyles(() => ({
   image: {
     position: "relative",
     left: "332px",
-    top: "-96px",
+    top: "36px",
     overflow: "visible",
     width: " 115%",
     height: "auto",

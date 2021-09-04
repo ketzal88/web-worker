@@ -11,15 +11,15 @@ const Footer = () => {
         <div className={classes.gridFooter}>
           <div className="new-footer-div footer-div-logo">
             <img
-              src="https://assets.website-files.com/5e3dcab63f5462821f6fc673/5e3dcab63f54628d256fc67f_manual_v2-02.svg"
+              src="../assets/img/logo-white.png"
               alt=""
               className={classes.image}
             />
-            <div className={classes.footerText}>Paisanos</div>
+            {/* <div className={classes.footerText}>Paisanos</div> */}
           </div>
           <div className="new-footer-div">
             <div className={classes.footerText}>
-              <NavLink
+              {/* <NavLink
                 to="https://www.behance.net/paisanoscreando"
                 target="_blank"
                 className={classes.iconLink}
@@ -32,9 +32,9 @@ const Footer = () => {
                 className={classes.iconLink}
               >
                 <span className="text-span-13"></span>
-              </NavLink>
+              </NavLink> */}
               <NavLink
-                to="https://www.linkedin.com/company/paisanoscreando/"
+                to="https://www.linkedin.com/company/Worker/"
                 target="_blank"
                 className={classes.iconLink}
               >
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center">
+        {/* <div className="d-flex justify-content-center">
           <div className="d-flex flex-column mx-2">
             <NavLink to="/" aria-current="page" className={classes.footerLink}>
               Home
@@ -70,17 +70,17 @@ const Footer = () => {
               Quality policies
             </NavLink>
           </div>
-        </div>
+        </div> */}
         <div className={classes.gridFooter}>
           <div className="city-name-footer">Buenos Aires, Argentina</div>
-          <p className="adress-footer">
+          {/* <p className="adress-footer">
             Gral. Enrique Martínez 525,&nbsp;Colegiales
-          </p>
+          </p> */}
         </div>
-        <div className={classes.gridFooter}>
+        {/* <div className={classes.gridFooter}>
           <div className="city-name-footer">Perú, Miraflores</div>
           <p className="adress-footer">Avenida General Cordova</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -117,8 +117,8 @@ const useStyles = makeStyles(() => ({
     "align-items": "flex-start",
   },
   image: {
-    width: "50px",
-    height: "50px",
+    width: "200px",
+    // height: "50px",
     "margin-right": "5px",
   },
   footerText: {

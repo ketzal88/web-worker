@@ -2,26 +2,25 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 
 const TestimonialCard = (props) => {
-  // const {testimonial, image, name, job}= props
+  const {description, image, name, job}= props.testimonio
   const classes = useStyles();
 
   return (
     <div className={classes.card}>
       <p className={classes.testimonial}>
-        "Paisanos help us to make the difference in a competitive Argentinian
-        fintech market with strong players with a lot of years of experience"
+        {description}
       </p>
       <div className={classes.container}>
         <img
-          src="https://assets.website-files.com/5e3dcab63f5462821f6fc673/5fd66ba12aa1ab16acc50a55_Pablo%20Scogiloo.jpeg"
+          src={image}
           width="61"
           loading="lazy"
           alt=""
           className={classes.image}
         />
         <div className={classes.container2}>
-          <div className={classes.name}>Pablo Scoglio</div>
-          <div className={classes.job}>CPO at MODO</div>
+          <div className={classes.name}>{name}</div>
+          <div className={classes.job}>{job}</div>
         </div>
       </div>
     </div>
@@ -39,7 +38,7 @@ const useStyles = makeStyles(() => ({
     opacity: 1,
     transition: ".3s",
     "border-width": "2px",
-    "&:hover": { "border-color": "#ff204e" },
+    "&:hover": { "border-color": "#044bd9" },
     "@media (max-width: 991px)": {
       maxWidth:'40%',
       "margin-bottom": "16px",
@@ -77,7 +76,7 @@ const useStyles = makeStyles(() => ({
   },
   image: {
     "margin-right": "14px",
-    border: "0 solid #ff204e",
+    border: "0 solid #044bd9",
     "border-radius": "180px",
   },
   container2: {

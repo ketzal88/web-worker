@@ -73,6 +73,20 @@
       })(window, document, "script", "dataLayer", "GTM-MKVW3542");
     </script>
     <!--  End Google Tag Manager  -->
+    <script type="text/javascript">
+      function googleAdsMeeting() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "meeting-ecommerce",
+        });
+      }
+      function googleAdsForm() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "form-ecommerce",
+        });
+      }
+    </script>
   </head>
   <body>
     <!--  Google Tag Manager (noscript)  -->
@@ -1152,9 +1166,11 @@
                     href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1m4NZB3_Z2ezseCMzI7oLEl5J1LZCW-NT05g-J3c6ZHYNhPlF6zGzdX9f-vr1DyK7gefzSkt4I"
                     target="_blank"
                     class="btn-secondary-2 space fontsize w-button"
+                    onclick="return googleAdsMeeting();"
                     >Book a meeting</a
                   ><input
                     type="submit"
+                    onclick="return googleAdsForm();"
                     value="Submit form"
                     data-wait="Please wait..."
                     class="btn-primary-2 fontsize w-button"

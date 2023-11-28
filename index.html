@@ -108,6 +108,20 @@
       name="facebook-domain-verification"
       content="vebd8ubtq70pmb2s4knns2t2lwcxpz"
     />
+    <script type="text/javascript">
+      function googleAdsMeeting() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "meeting",
+        });
+      }
+      function googleAdsForm() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "form",
+        });
+      }
+    </script>
   </head>
   <body class="body-2">
     <div class="w-embed w-iframe">
@@ -1796,8 +1810,10 @@
                     href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1m4NZB3_Z2ezseCMzI7oLEl5J1LZCW-NT05g-J3c6ZHYNhPlF6zGzdX9f-vr1DyK7gefzSkt4I"
                     target="_blank"
                     class="btn-secondary space fontsize w-button"
+                    onclick="return googleAdsMeeting();"
                     >Book a Meeting</a
                   ><input
+                    onclick="return googleAdsForm();"
                     type="submit"
                     value="Submit form"
                     data-wait="Please wait..."

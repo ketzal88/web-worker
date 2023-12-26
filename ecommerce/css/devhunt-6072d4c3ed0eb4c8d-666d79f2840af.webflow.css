@@ -41,6 +41,45 @@
   --button-shadow--white-03: rgba(20, 20, 43, .1);
 }
 
+a{
+  text-decoration: none;
+}
+#whatsapp {
+	position: fixed;
+	bottom: 20px;
+	right:20px;
+  z-index: 999999999;
+}
+svg {
+	width: 80px;
+	display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+}
+circle {
+  fill: #25d366;
+}
+path {
+	fill:  #fff;
+}
+
+#whatsapp a {padding: 20px 0;}
+#whatsapp a::before {
+	content: 'We can boost your sales';
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 10px;
+	margin-right: 10px;
+	color: rgba(0, 0, 0, .8);
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+	transition: .3s ease;
+	opacity: 0;
+}
+#whatsapp:hover a::before {opacity: 1;}
+
 .w-layout-grid {
   grid-row-gap: 16px;
   grid-column-gap: 16px;

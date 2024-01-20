@@ -144,6 +144,10 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  margin: 0;
+}
+
 p {
   margin: 0;
 }
@@ -221,6 +225,7 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 48px; /* 120% */
+  margin-bottom: 100px;
 }
 
 .imageCard {
@@ -285,6 +290,7 @@ p {
   transform: translatex(-88%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
+  margin-top: 44px;
 }
 
 #item-1:checked ~ .cards #song-2,
@@ -293,4 +299,16 @@ p {
   transform: translatex(88%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
+  margin-top: 44px;
+}
+
+.funnelSection {
+  display: flex;
+  /* padding: 100px 182px; */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: #fff;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }

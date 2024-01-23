@@ -9,58 +9,67 @@
   </head>
 
   <body>
-    <div class="menu">
-      <div class="menuContainer">
-        <img class="menuLogo" src="images/worker-Logo.svg" alt="worker logo" />
-        <div class="menuCTA">Boost your sales</div>
-      </div>
-    </div>
     <div class="mainContainer">
+      <header id="header">
+        <nav id="navbar" class="navbar">
+          <img
+            class="menuLogo"
+            src="images/worker-Logo.svg"
+            alt="worker logo"
+          />
+          <div class="menuCTA">Boost your sales</div>
+        </nav>
+      </header>
       <div>
-        <div class="hero">
-          <div>
-            <h1 class="heroText">
-              <span style="color: #ffbf01">Are you ready </span><br />
-              to Boost your<br />
-              Ecommerce<br />
-              Sales?
-            </h1>
-            <h4 class="heroDescription">
-              Increase your online sales +20% every <br />month. Our team of
-              specialists will help <br />you achieve your business goals!
-            </h4>
+        <section id="hero">
+          <div class="hero-container">
             <div>
-              <p class="weAre">We are:</p>
-            </div>
-            <div class="partnersHolder">
-              <img
-                src="images/google-partner.svg"
-                alt="google partner worker logo"
-              />
-              <img
-                src="images/meta-partner.svg"
-                alt="meta partner worker logo"
-              />
-              <img
-                src="images/shopify-partners.svg"
-                alt="shopify partner worker logo"
-              />
-              <img src="images/Klaviyo-Partner.svg" alt="klaviyo worker logo" />
+              <h1 class="heroText">
+                <span style="color: #ffc700">Are you ready </span><br />
+                to Boost your<br />
+                Ecommerce<br />
+                Sales?
+              </h1>
+              <h4 class="heroDescription">
+                Increase your online sales +20% every <br />month. Our team of
+                specialists will help <br />you achieve your business goals!
+              </h4>
+              <div>
+                <p class="weAre">We are:</p>
+              </div>
+              <div class="partnersHolder">
+                <img
+                  src="images/partners/logo-google.png"
+                  alt="google partner worker logo"
+                />
+                <img
+                  src="images/partners/logo-meta.png"
+                  alt="meta partner worker logo"
+                />
+                <img
+                  src="images/partners/logo-shopify.png"
+                  alt="shopify partner worker logo"
+                />
+                <img
+                  src="images/partners/logo-klavillo.png"
+                  alt="klaviyo worker logo"
+                />
+              </div>
+              <div>
+                <p class="ctaButton">Book a meeting</p>
+              </div>
             </div>
             <div>
-              <p class="ctaButton">Book a meeting</p>
+              <img
+                class="heroImage"
+                src="images/Book metting.svg"
+                alt="worker book a meeting"
+              />
             </div>
           </div>
-          <div>
-            <img
-              class="heroImage"
-              src="images/Book metting.svg"
-              alt="worker book a meeting"
-            />
-          </div>
-        </div>
+        </section>
       </div>
-      <div class="containerCases">
+      <!-- <div class="containerCases">
         <h2 class="headerCases">
           Why should you trust us? <br />Our success stories speak for
           themselves...
@@ -68,23 +77,82 @@
         <input type="radio" name="slider" id="item-1" checked />
         <input type="radio" name="slider" id="item-2" />
         <input type="radio" name="slider" id="item-3" />
+        <input type="radio" name="slider" id="item-4" />
+        <input type="radio" name="slider" id="item-5" />
+
         <div class="cards">
+          <label class="card" for="item-4" id="song-4">
+            <img
+              class="imageCard"
+              src="images/carrusel/img-case-accuracy.png"
+              alt="accuracy worker case"
+            />
+            <div class="dataCard">
+              <img
+                class="dataLogo"
+                src="images/carrusel/logos/logo-accuracy.png"
+                alt="accuracy worker logo case"
+              />
+              <div class="dataTextSection">
+                <p class="dataText">
+                  We applied Email Marketing + Email Automation + Programmatic
+                  Ads Buying
+                </p>
+                <div class="bookAMeeting">
+                  <p class="dataCTA">Book a meeting</p>
+                  <img
+                    class="arrowCTA"
+                    src="images/arrow forward.svg"
+                    alt="arrow forward"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
+          <label class="card" for="item-5" id="song-5">
+            <img
+              class="imageCard"
+              src="images/carrusel/img-case-pelba.png"
+              alt="pelba worker case"
+            />
+            <div class="dataCard">
+              <img
+                class="dataLogo"
+                src="images/carrusel/logos/logo-pelba.png"
+                alt="pelba worker logo case"
+              />
+              <div class="dataTextSection">
+                <p class="dataText">
+                  We applied Email Marketing + Email Automation + Google Ads +
+                  Meta Ads + Social Media
+                </p>
+                <div class="bookAMeeting">
+                  <p class="dataCTA">Book a meeting</p>
+                  <img
+                    class="arrowCTA"
+                    src="images/arrow forward.svg"
+                    alt="arrow forward"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
           <label class="card" for="item-1" id="song-1">
             <img
               class="imageCard"
-              src="images/carnicery-worker-case.png"
+              src="images/carrusel/img-case-carnicery.png"
               alt="carnicery worker case"
             />
             <div class="dataCard">
               <img
                 class="dataLogo"
-                src="images/carnicery-logo.svg"
+                src="images/carrusel/logos/logo-carnicery.png"
                 alt="carnicery worker logo case"
               />
               <div class="dataTextSection">
                 <p class="dataText">
-                  We apply Email Marketing + Automation + SMS Marketing strategy
-                  and run ads in Google Ads & Meta Ads Book a meeting
+                  We applied Google Ads + Google Tag Manager Optimization +
+                  Programmatic Ads Buying
                 </p>
                 <div class="bookAMeeting">
                   <p class="dataCTA">Book a meeting</p>
@@ -98,17 +166,17 @@
             </div>
           </label>
           <label class="card" for="item-2" id="song-2">
-            <img src="images/carnicery-worker-case.png" alt="song" />
+            <img src="images/carrusel/img-case-artaud.png" alt="song" />
             <div class="dataCard">
               <img
                 class="dataLogo"
-                src="images/carnicery-logo.svg"
-                alt="carnicery worker logo case"
+                src="images/carrusel/logos/logo-artaud.png"
+                alt="artud worker logo case"
               />
               <div class="dataTextSection">
                 <p class="dataText">
-                  We apply Email Marketing + Automation + SMS Marketing strategy
-                  and run ads in Google Ads & Meta Ads Book a meeting
+                  We applied Meta Ads + Catalogue Management + Pixel
+                  Optimization
                 </p>
                 <div class="bookAMeeting">
                   <p class="dataCTA">Book a meeting</p>
@@ -122,17 +190,17 @@
             </div>
           </label>
           <label class="card" for="item-3" id="song-3">
-            <img src="images/carnicery-worker-case.png" alt="song" />
+            <img src="images/carrusel/img-case-siglo21.png" alt="song" />
             <div class="dataCard">
               <img
                 class="dataLogo"
-                src="images/carnicery-logo.svg"
-                alt="carnicery worker logo case"
+                src="images/carrusel/logos/logo-siglo21.png"
+                alt="siglo 21 worker logo case"
               />
               <div class="dataTextSection">
                 <p class="dataText">
-                  We apply Email Marketing + Automation + SMS Marketing strategy
-                  and run ads in Google Ads & Meta Ads Book a meeting
+                  We applied Email Marketing + Automation + SMS Marketing
+                  strategy and run ads in Google Ads & Meta Ads Book a meeting
                 </p>
                 <div class="bookAMeeting">
                   <p class="dataCTA">Book a meeting</p>
@@ -147,7 +215,17 @@
           </label>
         </div>
       </div>
-      <div class="funnelSection"></div>
+      <div class="whiteSection">
+        <div class="funnelSection">
+          <div class="headline">
+            <h2>
+              We have a well-proven
+              <span style="color: #2b79ff">way to do things</span>
+            </h2>
+          </div>
+          <div class="carruselProducts"></div>
+        </div>
+      </div> -->
     </div>
   </body>
 </html>

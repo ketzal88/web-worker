@@ -72,7 +72,6 @@ p {
 #hero .hero-container {
   gap: 170px;
   margin-bottom: 100px;
-  margin-top: 100px;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -82,7 +81,6 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  padding: 0 15px;
 }
 
 .heroImage {
@@ -158,6 +156,18 @@ p {
   transition: all 0.5s;
   height: 80px;
   justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.4s ease-in-out;
+}
+
+#header.scrolled {
+  background-color: #000;
+}
+
+.backgroundBlack {
+  background-color: #000;
 }
 
 #header.header-transparent {
@@ -206,16 +216,18 @@ p {
 /* CASES SECTION */
 
 .containerCases {
-  width: 1440px;
-  max-height: 600px;
-  height: 100%;
-  transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   margin-bottom: 100px;
-  margin-top: 100px;
+}
+
+.containerSlider {
+  height: 100vh;
+  transform-style: preserve-3d;
+  max-width: 1440px;
+  width: 100%;
 }
 
 .headerCases {
@@ -281,7 +293,7 @@ p {
 /* CARRUSEL SLIDER */
 
 input[type="radio"] {
-  display: none;
+  /* display: none; */
 }
 
 .imageCard {
@@ -295,22 +307,58 @@ input[type="radio"] {
   position: absolute;
   width: 60%;
   height: 100%;
-  left: 0;
-  right: 0;
-  margin: auto;
   transition: transform 0.4s ease;
   cursor: pointer;
 }
 
 .cards {
   position: relative;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 20px;
 }
 
-/* #item-1:checked ~ .cards #song-2,
-#item-2:checked ~ .cards #song-3,
+#item-1:checked ~ .cards #song-2 {
+  transform: translatex(-88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-1:checked ~ .cards #song-3 {
+  transform: translatex(88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-1:checked ~ .cards #song-4 {
+  display: none;
+}
+
+#item-1:checked ~ .cards #song-5 {
+  display: none;
+}
+
+#item-2:checked ~ .cards #song-1 {
+  transform: translatex(-88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-2:checked ~ .cards #song-3 {
+  transform: translatex(88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-2:checked ~ .cards #song-4 {
+  display: none;
+}
+
+#item-2:checked ~ .cards #song-5 {
+  display: none;
+}
+
 #item-3:checked ~ .cards #song-1 {
   transform: translatex(-88%) scale(0.8);
   opacity: 0.4;
@@ -318,33 +366,63 @@ input[type="radio"] {
   margin-top: 44px;
 }
 
-#item-1:checked ~ .cards #song-5,
-#item-2:checked ~ .cards #song-4,
-#item-3:checked ~ .cards #song-3,
-#item-4:checked ~ .cards #song-1,
-#item-5:checked ~ .cards #song-2 {
-  transform: translatex(88%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
-  margin-top: 44px;
-} */
-
-#item-1:checked ~ .cards #song-3,
-#item-2:checked ~ .cards #song-1,
 #item-3:checked ~ .cards #song-2 {
+  transform: translatex(88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-3:checked ~ .cards #song-4 {
+  display: none;
+}
+
+#item-3:checked ~ .cards #song-5 {
+  display: none;
+}
+
+#item-4:checked ~ .cards #song-1 {
   transform: translatex(-88%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
   margin-top: 44px;
 }
 
-#item-1:checked ~ .cards #song-2,
-#item-2:checked ~ .cards #song-3,
-#item-3:checked ~ .cards #song-1 {
+#item-4:checked ~ .cards #song-3 {
   transform: translatex(88%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
   margin-top: 44px;
+}
+
+#item-4:checked ~ .cards #song-2 {
+  display: none;
+}
+
+#item-4:checked ~ .cards #song-5 {
+  display: none;
+}
+
+#item-5:checked ~ .cards #song-1 {
+  transform: translatex(-88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-5:checked ~ .cards #song-3 {
+  transform: translatex(88%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+  margin-top: 44px;
+}
+
+#item-5:checked ~ .cards #song-4 {
+  display: none;
+}
+
+#item-5:checked ~ .cards #song-2 {
+  display: none;
 }
 
 #item-1:checked ~ .cards #song-1,
@@ -357,39 +435,108 @@ input[type="radio"] {
   z-index: 1;
 }
 
-#item-4:checked ~ .cards #song-5,
-#item-5:checked ~ .cards #song-4 {
-  transform: translatex(-188%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
-  margin-top: 44px;
-}
-
-#item-4:checked ~ .cards #song-5,
-#item-5:checked ~ .cards #song-4 {
-  transform: translatex(188%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
-  margin-top: 44px;
-}
-
 .whiteSection {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  height: 750px;
+  align-items: center;
+  height: 100vh;
   width: 100%;
 }
 
 .funnelSection {
-  /* display: flex; */
+  margin-top: 100px;
+  display: flex;
   /* padding: 100px 182px; */
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
-  /* gap: 10px; */
-  /* margin-top: 100px;
-  margin-bottom: 100px; */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 100px;
 }
 
 /* CARRUSEL PRODUCTOS */
+
+.headlineProducts {
+  color: #000;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 120% */
+  margin-bottom: 96px;
+}
+
+.carruselProducts {
+  display: flex;
+  flex-direction: row;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 82px;
+}
+
+#buttons p {
+  color: var(--Black, #000);
+  font-family: Gilroy;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 200% */
+}
+
+.line {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 305px;
+  height: 1px;
+  opacity: 0.08;
+  background: #000;
+}
+
+#videos {
+  margin-right: 82px;
+}
+
+.productsTitle {
+  color: var(--Black, #000);
+  font-family: Gilroy;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 200% */
+}
+
+.productsDescription {
+  color: var(--Black, #000);
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.productsCTA {
+  color: var(--Blue, #2b79ff);
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.bookAMeeting {
+  display: flex;
+  line-height: 24px;
+  align-items: center;
+}
+
+.arrowCTABlue {
+  margin-top: 24px;
+  padding-left: 5px;
+}

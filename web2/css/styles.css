@@ -479,15 +479,6 @@ input[type="radio"] {
   margin-right: 82px;
 }
 
-#buttons p {
-  color: var(--Black, #000);
-  font-family: Gilroy;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 48px; /* 200% */
-}
-
 .line {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -497,17 +488,13 @@ input[type="radio"] {
   background: #000;
 }
 
-#videos {
-  margin-right: 82px;
-}
-
 .productsTitle {
   color: var(--Black, #000);
   font-family: Gilroy;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 48px; /* 200% */
+  line-height: 32px; /* 200% */
 }
 
 .productsDescription {
@@ -539,4 +526,132 @@ input[type="radio"] {
 .arrowCTABlue {
   margin-top: 24px;
   padding-left: 5px;
+}
+
+.productButtons {
+  color: var(--Black, #000);
+  font-family: Gilroy;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 200% */
+  opacity: 0.32;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+  &:hover {
+    opacity: 1;
+  }
+  &.active {
+    opacity: 1;
+  }
+  &.focus {
+    opacity: 1;
+  }
+  &:checked {
+    opacity: 1;
+  }
+  &.targets {
+    opacity: 1;
+  }
+}
+.hoverButton {
+  opacity: 1;
+}
+
+.middle {
+  display: grid;
+  grid-template-areas: "inner-div";
+  margin-left: 120px;
+}
+
+.marginLeft {
+  margin-left: 120px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  grid-area: inner-div;
+}
+
+.videosVertical {
+  width: 300px;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+}
+
+.display {
+  opacity: 1;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+}
+
+/* CARRUSEL DE LOGOS */
+
+.headlineStackOfTools {
+  color: #000;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.stackOfTools {
+  background-color: #fff;
+  display: flex;
+  padding: 100px 0px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.descriptionTools {
+  color: #000;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 19px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 400;
+  width: 620px;
+  text-wrap: wrap;
+  line-height: 24px; /* 126.316% */
+}
+.toolsLogos {
+  width: 100%;
+  min-width: 180px;
+  animation: scroll 60s linear infinite;
+}
+
+.slide-track {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.slider {
+  margin-top: 70px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translatex(-1000%);
+  }
 }

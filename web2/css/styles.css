@@ -751,9 +751,9 @@ input[type="radio"] {
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 }
 
@@ -769,17 +769,148 @@ input[type="radio"] {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .pricingCard {
   width: 343px;
-  height: 599px;
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.24);
-  opacity: 0.56;
+  /* opacity: 0.56; */
   background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-direction: column;
+  padding: 19 32 49 32;
+}
+
+.pricingPill {
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.16);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: "Gilroy Medium";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 133.333% */
+  width: 43px;
+  height: 10px;
+}
+
+.planTitle {
+  color: var(--Yellow, #ffc700);
+  font-family: "Gilroy Medium";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px; /* 180% */
+}
+
+.incluidoP {
+  color: #fff;
+  font-family: "Gilroy Medium";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 126.316% */
+}
+
+.price {
+  color: #fff;
+  font-family: "Gilroy-Bold";
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 48px; /* 75% */
+  margin-top: 37px;
+}
+
+.tick {
+  border-radius: 100px;
+  background: #fff;
+  margin-right: 17px;
+}
+
+.line {
+  background: white;
+  height: 1px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.included {
+  color: #fff;
+  font-family: "Gilroy-Medium";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+}
+
+.ctaPrice {
+  display: flex;
+  width: 279px;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: "Gilroy";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 114.286% */
 }
 
 .pricingCard:nth-child(2) {
-  scale: 1.1;
+  padding-bottom: 80px;
+}
+
+.formSection {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+form {
+  margin: auto;
+  width: 90%;
+}
+
+.btn {
+  border-radius: 50px;
+  width: 200px;
+}
+
+label {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+
+input {
+  display: flex;
+  height: 56px;
+  padding: 0px 24px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.08) inset;
 }

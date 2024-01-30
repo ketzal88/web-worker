@@ -124,6 +124,7 @@ p {
 
 .ctaButton {
   display: inline-flex;
+  text-decoration: none;
   padding: 24px;
   justify-content: center;
   align-items: center;
@@ -190,6 +191,7 @@ p {
 
 .menuCTA {
   display: flex;
+  text-decoration: none;
   padding: 16px;
   justify-content: center;
   align-items: center;
@@ -357,9 +359,10 @@ p {
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  margin-top: 24px;
+  padding-top: 24px;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .bookAMeeting {
@@ -697,6 +700,7 @@ p {
 }
 
 .ctaPrice {
+  text-decoration: none;
   display: flex;
   width: 279px;
   padding: 16px 24px;

@@ -164,6 +164,8 @@ const gallerySlider = new Swiper(".swiper.is-gallery", {
   centeredSlides: true,
   speed: 300,
   grabCursor: true,
+  a11y: false,
+  slideToClickedSlide: true,
   autoplay: {
     delay: 3000,
     disableOnInteraction: true,

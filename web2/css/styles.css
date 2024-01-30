@@ -81,18 +81,34 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 48px 24px 24px 24px;
+  }
 }
 
 .heroImage {
   width: 483px;
   height: 612px;
-  flex-shrink: 0;
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
 }
 
 .partnersHolder {
   display: flex;
   align-items: flex-start;
   gap: 16.603px;
+  @media screen and (max-width: 1279px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+.partnerImg {
+  width: 150px;
 }
 
 .heroText {
@@ -102,6 +118,10 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 64px; /* 100% */
+  @media screen and (max-width: 1279px) {
+    font-size: 40px;
+    line-height: 48px; /* 120% */
+  }
 }
 
 .heroDescription {
@@ -111,6 +131,10 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: 32px; /* 133.333% */
+  @media screen and (max-width: 1279px) {
+    font-size: 20px;
+    line-height: 24px; /* 120% */
+  }
 }
 
 .weAre {
@@ -187,6 +211,9 @@ p {
   align-items: center;
   flex-direction: row;
   width: 100%;
+  @media screen and (max-width: 1279px) {
+    margin: 24px;
+  }
 }
 
 .menuCTA {
@@ -221,6 +248,9 @@ p {
   background: url("../images/circulo\ amarillo.svg") top right;
   background-repeat: no-repeat;
   background-size: 100%;
+  @media screen and (max-width: 1279px) {
+    margin: 0px 24px 0px 24px;
+  }
 }
 
 .headerCases {
@@ -231,6 +261,16 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 48px; /* 120% */
+
+  @media screen and (max-width: 1279px) {
+    color: #fff;
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+  }
 }
 
 .dataCard {
@@ -893,6 +933,10 @@ input {
   height: 459px;
   border-radius: 72px;
   object-fit: cover;
+  @media screen and (max-width: 1279px) {
+    width: 330px;
+    height: 195px;
+  }
 }
 .swiperParallax .gallery-info__wrapper {
   display: flex;

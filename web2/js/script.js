@@ -155,3 +155,35 @@ boostConversion.addEventListener("click", () => {
   const attention = document.querySelector(".attention");
   attention.classList.add("display");
 });
+
+document.getElementById("year").innerHTML = new Date().getFullYear();
+
+const gallerySlider = new Swiper(".swiper.is-gallery", {
+  loop: true,
+  slidesPerView: 2,
+  centeredSlides: true,
+  speed: 300,
+  grabCursor: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 1,
+    },
+    1024: {
+      slidesPerView: 2,
+    },
+    1560: {
+      slidesPerView: 3,
+    },
+  },
+});

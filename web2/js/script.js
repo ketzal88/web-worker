@@ -170,9 +170,9 @@ const gallerySlider = new Swiper(".swiper.is-gallery", {
     delay: 3000,
     disableOnInteraction: true,
   },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+  navigation: {
+    nextEl: ".swiper-next",
+    prevEl: ".swiper-prev",
   },
   breakpoints: {
     640: {

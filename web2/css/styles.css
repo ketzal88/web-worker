@@ -248,9 +248,6 @@ p {
   background: url("../images/circulo\ amarillo.svg") top right;
   background-repeat: no-repeat;
   background-size: 100%;
-  @media screen and (max-width: 1279px) {
-    margin: 0px 24px 0px 24px;
-  }
 }
 
 .headerCases {
@@ -280,18 +277,27 @@ p {
   align-items: flex-start;
   margin-top: 36px;
   gap: 232px;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    width: 200px;
+  }
 }
 
 .dataTextSection {
   width: 364px;
   height: 119px;
-  flex-shrink: 0;
+  @media screen and (max-width: 1279px) {
+    width: 297px;
+  }
 }
 
 .dataLogo {
   width: 175px;
   height: 72px;
-  flex-shrink: 0;
 }
 
 .dataText {
@@ -307,6 +313,9 @@ p {
   display: flex;
   line-height: 24px;
   align-items: center;
+  @media screen and (max-width: 1279px) {
+    margin-top: 24px;
+  }
 }
 
 .dataCTA {
@@ -352,6 +361,13 @@ p {
   font-weight: 700;
   line-height: 48px; /* 120% */
   margin-bottom: 96px;
+  @media screen and (max-width: 1279px) {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 116.667% */
+    margin-bottom: 44px;
+  }
 }
 
 .carruselProducts {
@@ -496,6 +512,12 @@ p {
   font-style: normal;
   font-weight: 700;
   margin-bottom: 24px;
+  @media screen and (max-width: 1279px) {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+  }
 }
 
 .stackOfTools {
@@ -504,6 +526,9 @@ p {
   padding: 100px 0px;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 1279px) {
+    padding: 48px 0px;
+  }
 }
 
 .descriptionTools {
@@ -517,6 +542,13 @@ p {
   width: 620px;
   text-wrap: wrap;
   line-height: 24px; /* 126.316% */
+  @media screen and (max-width: 1279px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    width: 321px;
+  }
 }
 .toolsLogos {
   width: 100%;
@@ -553,6 +585,9 @@ p {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 1279px) {
+    padding: 48px 0px;
+  }
 }
 
 .cardWrapper {
@@ -561,6 +596,10 @@ p {
   flex-direction: row;
   align-items: center;
   gap: 24px;
+  @media screen and (max-width: 1279px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .cardTestimonials {
@@ -574,6 +613,11 @@ p {
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #fff;
   margin-bottom: 24px;
+  @media screen and (max-width: 1279px) {
+    width: 288px;
+    margin-bottom: 24px;
+    gap: 0px;
+  }
 }
 
 .dataTestimonialBox {
@@ -861,6 +905,9 @@ input {
   width: 100%;
   height: 100vh;
   transition: 0.25s;
+  @media screen and (max-width: 1279px) {
+    height: 70vh;
+  }
 }
 
 .swiperParallax.swiper {
@@ -921,6 +968,9 @@ input {
   .dataCard {
     opacity: 0;
   }
+  @media screen and (max-width: 1279px) {
+    align-items: flex-start;
+  }
 }
 .imageCard {
   width: 771px;
@@ -936,6 +986,7 @@ input {
   @media screen and (max-width: 1279px) {
     width: 330px;
     height: 195px;
+    border-radius: 30px;
   }
 }
 .swiperParallax .gallery-info__wrapper {
@@ -967,4 +1018,49 @@ input {
   background-image: url("../images/prev-button.svg");
   width: 64px;
   height: 64px;
+}
+
+.navigationMobile {
+  @media screen and (min-width: 1279px) {
+    display: flex;
+  }
+}
+
+.mobileHidden {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.swiper-pagination {
+  position: relative !important;
+  width: 16px;
+  height: 16px;
+  background-color: #2b79ff;
+}
+.swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  background-color: #2b79ff;
+}
+
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  background-color: #2b79ff;
+}
+
+:root {
+  --swiper-pagination-color: var(--swiper-theme-color);
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-width: 8px;
+  --swiper-pagination-bullet-height: 8px;
+  --swiper-pagination-bullet-inactive-color: #000;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-vertical-gap: 6px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
 }

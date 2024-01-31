@@ -160,7 +160,7 @@ document.getElementById("year").innerHTML = new Date().getFullYear();
 
 const gallerySlider = new Swiper(".swiper.is-gallery", {
   loop: true,
-  slidesPerView: 2,
+  slidesPerView: 1,
   centeredSlides: true,
   speed: 300,
   grabCursor: true,
@@ -174,17 +174,23 @@ const gallerySlider = new Swiper(".swiper.is-gallery", {
     nextEl: ".swiper-next",
     prevEl: ".swiper-prev",
   },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  bulletClass: "swiper-pagination-bullet",
+  bulletActiveClass: "swiper-pagination-bullet-active",
   breakpoints: {
     640: {
-      slidesPerView: 2,
+      slidesPerView: 1,
     },
     768: {
       slidesPerView: 1,
     },
     1024: {
-      slidesPerView: 2,
+      slidesPerView: 1,
     },
-    1560: {
+    1439: {
       slidesPerView: 3,
     },
   },

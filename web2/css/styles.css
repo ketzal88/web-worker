@@ -531,6 +531,7 @@ p {
   align-items: center;
   @media screen and (max-width: 1279px) {
     padding: 48px 0px;
+    max-width: 100%;
   }
 }
 

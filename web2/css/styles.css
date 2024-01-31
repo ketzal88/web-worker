@@ -206,7 +206,9 @@ p {
 
 .navbar {
   display: flex;
-  max-width: 1230px;
+  max-width: 1440px;
+  margin-right: 70px;
+  margin-left: 70px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
@@ -310,6 +312,7 @@ p {
 }
 
 .bookAMeeting {
+  margin-top: 24px;
   display: flex;
   line-height: 24px;
   align-items: center;
@@ -581,7 +584,8 @@ p {
 .testimonialSection {
   background-color: #fff;
   display: flex;
-  padding: 100px 0px;
+  padding: 100px 70px 0px 70px;
+  margin-bottom: 100px;
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -639,9 +643,9 @@ p {
   flex: 1 0 0;
 }
 
-.nameTestimonials {
+.nameTestimonial {
   color: #000;
-  font-family: "Gilroy-Medium";
+  font-family: "Gilroy-Bold";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -688,6 +692,9 @@ p {
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 1279px) {
+    width: inherit;
+  }
 }
 
 .pricingTitle {
@@ -703,17 +710,27 @@ p {
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .pricingCard {
   width: 343px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  /* opacity: 0.56; */
-  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   padding: 19 32 49 32;
+  @media screen and (max-width: 1279px) {
+    width: 75%;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
 }
 
 .pricingPill {
@@ -758,6 +775,9 @@ p {
   font-weight: 700;
   line-height: 48px; /* 75% */
   margin-top: 37px;
+  @media screen and (max-width: 1279px) {
+    font-size: 48px;
+  }
 }
 
 .tick {
@@ -800,10 +820,40 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 16px; /* 114.286% */
+  margin-top: 86px;
+  @media screen and (max-width: 1279px) {
+    width: 80%;
+    margin-top: 56px;
+  }
+}
+
+.ctaPriceBlue {
+  display: flex;
+  text-decoration: none;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #2b79ff;
+  color: #fff;
+  text-align: center;
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  @media screen and (max-width: 1279px) {
+    width: 80%;
+    margin-top: 56px;
+  }
 }
 
 .pricingCard:nth-child(2) {
   padding-bottom: 80px;
+  @media screen and (max-width: 1279px) {
+    padding: 35px 24px;
+  }
 }
 
 .formSection {
@@ -814,11 +864,45 @@ p {
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-bottom: 48px;
+    margin-top: 0px;
+  }
+}
+
+.formTextHeader {
+  color: var(--Yellow, #fff);
+  font-family: "Gilroy";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 100% */
+  @media screen and (max-width: 1279px) {
+    font-size: 24px;
+    line-height: 28px; /* 116.667% */
+  }
 }
 
 form {
   margin: auto;
   width: 90%;
+  @media screen and (max-width: 1279px) {
+    margin-top: 72px;
+  }
+}
+
+.formButton {
+  display: flex;
+  justify-content: flex-end;
+  @media screen and (max-width: 1279px) {
+    justify-content: center;
+  }
 }
 
 .btn {
@@ -846,6 +930,8 @@ input {
   appearance: none;
   -webkit-appearance: none;
   box-shadow: none !important;
+  border: 0;
+  outline: 0;
   -webkit-autofill: "color: #fff !important;";
   display: flex;
   height: 56px;
@@ -869,9 +955,12 @@ input {
   align-items: center;
   flex-direction: row;
   width: 100%;
-  margin-top: 100px;
   margin-bottom: 100px;
   gap: 24px;
+  padding: 48px;
+  @media screen and (max-width: 1279px) {
+    flex-direction: column;
+  }
 }
 
 .footerText {
@@ -1005,6 +1094,14 @@ input {
   flex-direction: row;
   margin-right: 20%;
   justify-content: flex-end;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 0px;
+    margin-top: 40px;
+    margin-bottom: 48px;
+  }
 }
 
 .swiper-next {
@@ -1030,37 +1127,4 @@ input {
   @media screen and (max-width: 1279px) {
     display: none;
   }
-}
-
-.swiper-pagination {
-  position: relative !important;
-  width: 16px;
-  height: 16px;
-  background-color: #2b79ff;
-}
-.swiper-pagination-bullet-active {
-  width: 16px;
-  height: 16px;
-  background-color: #2b79ff;
-}
-
-.swiper-pagination-bullet {
-  width: 16px;
-  height: 16px;
-  background-color: #2b79ff;
-}
-
-:root {
-  --swiper-pagination-color: var(--swiper-theme-color);
-  --swiper-pagination-bullet-size: 8px;
-  --swiper-pagination-bullet-width: 8px;
-  --swiper-pagination-bullet-height: 8px;
-  --swiper-pagination-bullet-inactive-color: #000;
-  --swiper-pagination-bullet-inactive-opacity: 0.2;
-  --swiper-pagination-bullet-opacity: 1;
-  --swiper-pagination-bullet-horizontal-gap: 4px;
-  --swiper-pagination-bullet-vertical-gap: 6px;
-}
-.swiper-pagination-bullet-active {
-  background-color: #fff !important;
 }

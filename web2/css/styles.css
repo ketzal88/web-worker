@@ -1,40 +1,5 @@
-@font-face {
-  font-family: "Gilroy-Bold";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Gilroy-Bold"), url("Gilroy-Bold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Gilroy-Heavy";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Gilroy-Heavy"), url("Gilroy-Heavy.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Gilroy-Light";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Gilroy-Light"), url("Gilroy-Light.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Gilroy-Medium";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Gilroy-Medium"), url("Gilroy-Medium.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Gilroy-Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Gilroy-Regular"), url("Gilroy-Regular.woff") format("woff");
-}
-
 body {
-  font-family: "Gilroy-Regular", "Helvetica Neue";
+  font-family: "Poppins", sans-serif;
   transition: background 0.4s ease-in;
   background-color: #000000;
   overflow-x: hidden;
@@ -113,7 +78,7 @@ p {
 
 .heroText {
   color: var(--Yellow, #fff);
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
@@ -126,7 +91,7 @@ p {
 
 .heroDescription {
   color: var(--White, #fff);
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -139,7 +104,7 @@ p {
 
 .weAre {
   color: var(--White, #fff);
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -155,7 +120,7 @@ p {
   gap: 10px;
   color: #fff;
   text-align: center;
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -229,7 +194,7 @@ p {
   background: #2b79ff;
   color: #fff;
   text-align: center;
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -255,7 +220,7 @@ p {
 .headerCases {
   color: #fff;
   text-align: center;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -264,7 +229,7 @@ p {
   @media screen and (max-width: 1279px) {
     color: #fff;
     text-align: center;
-    font-family: Gilroy;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -304,7 +269,7 @@ p {
 
 .dataText {
   color: #fff;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -324,7 +289,7 @@ p {
 .dataCTA {
   text-decoration: none;
   color: #ffc700;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -358,7 +323,7 @@ p {
 .headlineProducts {
   color: #000;
   text-align: center;
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -396,7 +361,7 @@ p {
 
 .productsTitle {
   color: var(--Black, #000);
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -405,7 +370,7 @@ p {
 
 .productsDescription {
   color: var(--Black, #000);
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -414,7 +379,7 @@ p {
 
 .productsCTA {
   color: var(--Blue, #2b79ff);
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -437,7 +402,7 @@ p {
 
 .productButtons {
   color: var(--Black, #000);
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -510,7 +475,7 @@ p {
 .headlineStackOfTools {
   color: #000;
   text-align: center;
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -538,7 +503,7 @@ p {
 .descriptionTools {
   color: #000;
   text-align: center;
-  font-family: Gilroy;
+  font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-style: normal;
   text-align: center;
@@ -646,7 +611,7 @@ p {
 
 .nameTestimonial {
   color: #000;
-  font-family: "Gilroy-Bold";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -654,7 +619,7 @@ p {
 }
 .positionTestimonial {
   color: #000;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -663,7 +628,7 @@ p {
 
 .companyTestimonial {
   color: #b6b6b6;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -672,7 +637,7 @@ p {
 
 .testimonialText {
   color: #000;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-style: normal;
   font-weight: 400;
@@ -742,7 +707,7 @@ p {
   text-align: center;
   display: flex;
   align-items: center;
-  font-family: "Gilroy Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -753,7 +718,7 @@ p {
 
 .planTitle {
   color: var(--Yellow, #ffc700);
-  font-family: "Gilroy Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -762,7 +727,7 @@ p {
 
 .incluidoP {
   color: #fff;
-  font-family: "Gilroy Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-style: normal;
   font-weight: 700;
@@ -771,7 +736,7 @@ p {
 
 .price {
   color: #fff;
-  font-family: "Gilroy-Bold";
+  font-family: "Poppins", sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 48px; /* 75% */
@@ -797,7 +762,7 @@ p {
 
 .included {
   color: #fff;
-  font-family: "Gilroy-Medium";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -816,7 +781,7 @@ p {
   background: rgba(255, 255, 255, 0.08);
   color: var(--White, #fff);
   text-align: center;
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -839,7 +804,7 @@ p {
   background: #2b79ff;
   color: #fff;
   text-align: center;
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -879,7 +844,7 @@ p {
 
 .formTextHeader {
   color: var(--Yellow, #fff);
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -914,7 +879,7 @@ form {
 label {
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -966,7 +931,7 @@ input {
 
 .footerText {
   color: #fff;
-  font-family: "Gilroy";
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

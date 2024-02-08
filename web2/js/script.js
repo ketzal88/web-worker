@@ -1,3 +1,6 @@
+console.log(window.screen.height + "px heigth");
+console.log(window.screen.width + "px width");
+
 window.addEventListener("scroll", function () {
   var header = document.getElementById("header");
   header.classList.toggle("backgroundBlack", window.scrollY > 0);
@@ -190,8 +193,9 @@ const gallerySlider = new Swiper(".swiper.is-gallery", {
     1024: {
       slidesPerView: 1,
     },
-    1439: {
+    1279: {
       slidesPerView: 3,
+      // spaceBetween: 600,
     },
   },
 });

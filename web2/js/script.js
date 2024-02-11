@@ -1,6 +1,3 @@
-console.log(window.screen.height + "px heigth");
-console.log(window.screen.width + "px width");
-
 window.addEventListener("scroll", function () {
   var header = document.getElementById("header");
   header.classList.toggle("backgroundBlack", window.scrollY > 0);
@@ -161,9 +158,10 @@ boostConversion.addEventListener("click", () => {
 
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
-const gallerySlider = new Swiper(".swiper.is-gallery", {
+const gallerySlider = new Swiper(".haederSwiper", {
   loop: true,
-  slidesPerView: 1,
+  slidesPerView: 2,
+  effect: 'cards',
   centeredSlides: true,
   speed: 300,
   grabCursor: true,
@@ -183,19 +181,19 @@ const gallerySlider = new Swiper(".swiper.is-gallery", {
   },
   bulletClass: "swiper-pagination-bullet",
   bulletActiveClass: "swiper-pagination-bullet-active",
-  breakpoints: {
-    640: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 1,
-    },
-    1279: {
-      slidesPerView: 3,
+  // breakpoints: {
+    // 640: {
+      // slidesPerView: 1,
+    // },
+    // 768: {
+      // slidesPerView: 1,
+    // },
+    // 1024: {
+      // slidesPerView: 1,
+    // },
+    // 1279: {
+      // slidesPerView: 3,
       // spaceBetween: 600,
-    },
-  },
+    // },
+  // },
 });

@@ -1,6 +1,4 @@
-/**
- * Basic CSS Media Query Template
- * TODO: I should probably use Sass...
+/* * Basic CSS Media Query Template
  * Author: Michael Vieth
  * ------------------------------------------
  *  Responsive Grid Media Queries - 1280, 1024, 768, 480
@@ -8,8 +6,8 @@
  *   1024-768    - tablet landscape
  *   768-480     - tablet 
  *   480-less    - phone landscape & smaller
- * --------------------------------------------
- */
+ * -------------------------------------------- */
+
 /* @media all and (min-width: 1024px) and (max-width: 1280px) { }
 
  @media all and (min-width: 768px) and (max-width: 1024px) { }
@@ -40,12 +38,9 @@ p {
 
 /* START HERO */
 #hero {
-  width: 100%;
-  height: 100vh;
+  height: 210vh;
   background-size: cover;
-  position: relative;
-  flex-direction: row;
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  /* @media all and (min-width: 1024px) and (max-width: 1280px) {
     margin-right: 70px;
     margin-left: 70px;
     margin-top: 80px;
@@ -59,64 +54,20 @@ p {
   }
 
   @media all and (max-width: 480px) {
-  }
-}
-
-#hero:before {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  } */
 }
 
 #hero .hero-container {
-  gap: 170px;
+  gap: 100px;
+  padding-top: 200px;
+  margin-top: -100px;
   margin-bottom: 100px;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  margin-right: 120px;
+  margin-left: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
-    gap: 100px;
-  }
-
-  @media all and (min-width: 768px) and (max-width: 1024px) {
-  }
-
-  @media all and (min-width: 480px) and (max-width: 768px) {
-  }
-
-  @media all and (max-width: 480px) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    margin: 48px 24px 24px 24px;
-  }
-}
-
-.heroImage {
-  width: 483px;
-  height: 612px;
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
-    height: 450px;
-  }
-
-  @media all and (min-width: 768px) and (max-width: 1024px) {
-  }
-
-  @media all and (min-width: 480px) and (max-width: 768px) {
-  }
-
-  @media all and (max-width: 480px) {
-    display: none;
-  }
 }
 
 .partnersHolder {
@@ -162,7 +113,7 @@ p {
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
-  line-height: 64px; /* 100% */
+  line-height: 78px; /* 100% */
   @media all and (min-width: 1024px) and (max-width: 1280px) {
     font-size: 40px;
     font-style: normal;
@@ -252,8 +203,9 @@ p {
 /* FIN HERO */
 
 /* BACKGROUND */
-.mainContainer {
-  background: url("../images/circulo\ azul.svg") top left;
+.heroBackground {
+  background: url("../images/circulo-azul.svg") top left,
+    url("../images/circulo-amarillo.svg") top right;
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -261,7 +213,7 @@ p {
 /* MENU */
 #header {
   display: flex;
-  z-index: 997;
+  z-index: 9999;
   transition: all 0.5s;
   height: 80px;
   justify-content: center;
@@ -271,22 +223,8 @@ p {
   transition: background-color 0.4s ease-in-out;
 }
 
-#header.scrolled {
-  background-color: #000;
-  height: 60px;
-}
-
 .backgroundBlack {
   background-color: #000;
-}
-
-#header.header-transparent {
-  background: transparent !important;
-}
-
-#header.header-scrolled {
-  height: 60px;
-  background: rgba(25, 28, 31, 0.8);
 }
 
 .navbar {
@@ -695,6 +633,7 @@ p {
 
 .slide-track {
   width: 100%;
+  max-width: 1440px;
   display: flex;
   gap: 10px;
   overflow: hidden;
@@ -718,7 +657,7 @@ p {
 .testimonialSection {
   background-color: #fff;
   display: flex;
-  padding: 100px 70px 0px 70px;
+  /* padding: 100px 70px 0px 70px; */
   margin-bottom: 100px;
   width: 100%;
   flex-direction: column;
@@ -816,12 +755,8 @@ p {
 
 .pricingSection {
   padding-top: 100px;
-  background: url("../images/circulo\ azul.svg") top left,
-    url("../images/circulo\ amarillo.svg") top right;
-  background-repeat: no-repeat;
-  background-size: 100%;
   width: 100%;
-  height: 200vh;
+  height: 250vh;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -843,7 +778,6 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 100px;
   @media screen and (max-width: 1279px) {
     display: flex;
     justify-content: flex-start;
@@ -853,17 +787,24 @@ p {
 }
 
 .pricingCard {
+  display: flex;
+  flex-direction: column;
   width: 343px;
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
   padding: 19 32 49 32;
-  @media screen and (max-width: 1279px) {
+  /* @media screen and (max-width: 1279px) {
     width: 75%;
     padding-top: 35px;
     padding-bottom: 35px;
+  } */
+}
+
+.pricingCard:nth-child(2) {
+  scale: 1.05;
+  @media screen and (max-width: 1279px) {
+    scale: 1;
   }
 }
 
@@ -977,16 +918,26 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
+  margin-top: 86px;
   @media screen and (max-width: 1279px) {
     width: 80%;
     margin-top: 56px;
   }
 }
 
-.pricingCard:nth-child(2) {
-  padding-bottom: 80px;
+.bottomSection {
+  padding-top: 100px;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  background: url("../images/circulo-azul-bottom.svg") top left;
+  background-repeat: no-repeat;
+  background-size: 100%;
   @media screen and (max-width: 1279px) {
-    padding: 35px 24px;
+    width: inherit;
   }
 }
 
@@ -997,7 +948,7 @@ p {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 24px;
+  gap: 54px;
   @media screen and (max-width: 1279px) {
     display: flex;
     flex-direction: column;
@@ -1111,294 +1062,35 @@ input {
   margin-right: 16px;
 }
 
-/* CARRUSEL FULL WIDTH */
-
-/* 
-.slideStyle {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
-  height: 100vh;
-  transition: 0.25s;
-  @media screen and (max-width: 1279px) {
-    height: 70vh;
-  }
-}
-
-.swiperParallax.swiper {
-  width: 100%;
-  overflow: hidden;
-}
-
-.swiperParallax .swiper-wrapper {
-  flex-direction: row;
-  align-items: center;
-  display: flex;
-}
-.swiperParallax .swiper-slide {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  grid-column-gap: 150px;
-  grid-row-gap: 150px;
-  flex-direction: column;
-  flex: none;
-}
-.swiperParallax .swiper-slide.swiper-slide-active .gallery-img__wrapper {
-  opacity: 1;
-  transform: scale(1);
-  .dataCard {
-    opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-      opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-}
-.swiperParallax .swiper-slide.swiper-slide-active .gallery-info__wrapper {
-  opacity: 1;
-  transform: translateY(0%);
-  .dataCard {
-    opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-      opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.4s ease;
-  cursor: pointer;
-}
-
-.swiperParallax .gallery-img__wrapper {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.25;
-  transform: scale(0.6);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  .dataCard {
-    opacity: 0;
-  }
-  @media screen and (max-width: 1279px) {
-    align-items: flex-start;
-  }
-}
-.imageCard {
-  width: 771px;
-  height: 459px;
-  border-radius: 72px;
-  object-fit: cover;
-}
-.swiperParallax .gallery-img__wrapper .gallery-img {
-  width: 771px;
-  height: 459px;
-  border-radius: 72px;
-  object-fit: cover;
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
-    width: 600px;
-  }
-
-  @media all and (min-width: 768px) and (max-width: 1024px) {
-  }
-
-  @media all and (min-width: 480px) and (max-width: 768px) {
-  }
-
-  @media all and (max-width: 480px) {
-    width: 330px;
-    height: 195px;
-    border-radius: 30px;
-  }
-}
-.swiperParallax .gallery-info__wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(50%);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.navigation {
-  display: flex;
-  flex-direction: row;
-  margin-right: 20%;
-  justify-content: flex-end;
-  @media screen and (max-width: 1279px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-right: 0px;
-    margin-top: 40px;
-    margin-bottom: 48px;
-  }
-}
-
-.swiper-next {
-  background-image: url("../images/next-button.svg");
-  width: 64px;
-  height: 64px;
-  margin-left: 16px;
-}
-
-.swiper-prev {
-  background-image: url("../images/prev-button.svg");
-  width: 64px;
-  height: 64px;
-}
-
-.navigationMobile {
-  @media screen and (min-width: 1279px) {
-    display: flex;
-  }
-}
-
-.mobileHidden {
-  @media screen and (max-width: 1279px) {
-    display: none;
-  }
-} */
-
 /* CARRUSEL HEADER */
 
 .textContainer {
-  width: 50%;
+  width: 40%;
 }
 
 .carruselContainer {
-  width: 50%;
+  width: 40%;
 }
 
-slideStyle {
-  position: relative;
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  width: 350px;
-  height: 620px;
-  transition: 0.25s;
-  @media screen and (max-width: 1279px) {
-    /* height: 70vh; */
-  }
-}
-
-.swiperParallax.swiper {
-  width: 546px;
-  overflow: hidden;
-}
-
-.swiperParallax .swiper-wrapper {
-  flex-direction: row;
   align-items: center;
-  display: flex;
   justify-content: center;
-}
-.swiperParallax .swiper-slide {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  grid-column-gap: 25px;
-  grid-row-gap: 25px;
-  flex-direction: column;
-  flex: none;
-}
-.swiperParallax .swiper-slide.swiper-slide-active .gallery-img__wrapper {
-  opacity: 1;
-  transform: scale(1);
-  .dataCard {
-    opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-      opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-}
-.swiperParallax .swiper-slide.swiper-slide-active .gallery-info__wrapper {
-  opacity: 1;
-  transform: translateY(0%);
-  .dataCard {
-    opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-      opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
+  border-radius: 60px;
+  background-color: #000;
   transition: transform 0.4s ease;
   cursor: pointer;
-}
-
-.swiperParallax .gallery-img__wrapper {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.25;
-  transform: scale(0.6);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  .dataCard {
-    opacity: 0;
-  }
-  @media screen and (max-width: 1279px) {
-    /* align-items: flex-start; */
-  }
-}
-.imageCard {
-  width: 426px;
-  height: 621px;
-  border-radius: 60px;
-  object-fit: cover;
-}
-.swiperParallax .gallery-img__wrapper .gallery-img {
-  width: 426px;
-  height: 621px;
-  border-radius: 60px;
-  object-fit: cover;
-  @media all and (min-width: 1024px) and (max-width: 1280px) {
-    width: 426px;
-    height: 621px;
-  }
-
-  @media all and (min-width: 768px) and (max-width: 1024px) {
-  }
-
-  @media all and (min-width: 480px) and (max-width: 768px) {
-  }
-
-  @media all and (max-width: 480px) {
-    width: 330px;
-    height: 195px;
-    border-radius: 30px;
-  }
-}
-.swiperParallax .gallery-info__wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(50%);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .navigation {
   display: flex;
   flex-direction: row;
-  margin-right: 20%;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 48px;
   @media screen and (max-width: 1279px) {
     display: flex;
     flex-direction: row;

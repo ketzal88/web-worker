@@ -161,7 +161,7 @@ document.getElementById("year").innerHTML = new Date().getFullYear();
 const gallerySlider = new Swiper(".haederSwiper", {
   loop: true,
   slidesPerView: 2,
-  effect: 'cards',
+  effect: "cards",
   centeredSlides: true,
   speed: 300,
   grabCursor: true,
@@ -181,19 +181,15 @@ const gallerySlider = new Swiper(".haederSwiper", {
   },
   bulletClass: "swiper-pagination-bullet",
   bulletActiveClass: "swiper-pagination-bullet-active",
-  // breakpoints: {
-    // 640: {
-      // slidesPerView: 1,
-    // },
-    // 768: {
-      // slidesPerView: 1,
-    // },
-    // 1024: {
-      // slidesPerView: 1,
-    // },
-    // 1279: {
-      // slidesPerView: 3,
-      // spaceBetween: 600,
-    // },
-  // },
+});
+
+var productsSwiper = new Swiper(".swiper-container.products", {
+  initialSlide: 0,
+  slidesPerView: "auto",
+  centeredSlides: true,
+  spaceBetween: -25,
+  paginationClickable: true,
+  grabCursor: true,
+  pagination: ".swiper-container.products .swiper-pagination",
+  speed: 400,
 });

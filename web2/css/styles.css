@@ -38,27 +38,29 @@ p {
 
 /* START HERO */
 #hero {
-  height: 210vh;
+  padding-bottom: 100px;
   background-size: cover;
-  /* @media all and (min-width: 1024px) and (max-width: 1280px) {
-    margin-right: 70px;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    /* margin-right: 70px;
     margin-left: 70px;
     margin-top: 80px;
-    margin-bottom: 100px;
+    margin-bottom: 100px; */
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
+    padding-bottom: 48px;
   }
 
   @media all and (max-width: 480px) {
-  } */
+    padding-bottom: 48px;
+  }
 }
 
 #hero .hero-container {
-  gap: 100px;
+  gap: 40px;
   padding-top: 200px;
   margin-top: -100px;
   margin-bottom: 100px;
@@ -398,7 +400,7 @@ p {
   }
 
   @media all and (max-width: 480px) {
-    margin-top: 24px;
+    margin-top: 0px;
   }
 }
 
@@ -435,14 +437,14 @@ p {
   @media all and (min-width: 1024px) and (max-width: 1280px) {
   }
   @media all and (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 48px;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
   }
 
   @media all and (max-width: 480px) {
-    /* padding-left: 70px;
-    padding-right: 70px; */
+    margin-bottom: 48px;
   }
 }
 
@@ -502,6 +504,35 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 32px; /* 200% */
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+  }
+
+  @media all and (max-width: 480px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+  }
 }
 
 .productsDescription {
@@ -511,6 +542,35 @@ p {
   font-style: normal;
   font-weight: 400;
   margin-top: 24px;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+  }
+
+  @media all and (max-width: 480px) {
+    color: var(--Black, #000);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+  }
 }
 
 .productsCTA {
@@ -523,6 +583,35 @@ p {
   display: flex;
   align-items: center;
   text-decoration: none;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    color: var(--Blue, #2b79ff);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    color: var(--Blue, #2b79ff);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+  }
+
+  @media all and (max-width: 480px) {
+    color: var(--Blue, #2b79ff);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+  }
 }
 
 .bookAMeeting {
@@ -687,9 +776,9 @@ p {
 .testimonialSection {
   background-color: #fff;
   display: flex;
-  /* padding: 100px 70px 0px 70px; */
   margin-bottom: 100px;
-  width: 100%;
+  padding-left: 70px;
+  padding-right: 70px;
   flex-direction: column;
   align-items: center;
   @media screen and (max-width: 1279px) {
@@ -711,7 +800,6 @@ p {
 
 .cardTestimonials {
   display: flex;
-  width: 413px;
   padding: 20px;
   flex-direction: column;
   align-items: flex-start;
@@ -730,6 +818,9 @@ p {
 .dataTestimonialBox {
   display: flex;
   gap: 16px;
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 16px;
+  }
 }
 
 .photoTestimonial {
@@ -829,6 +920,18 @@ p {
     padding-top: 35px;
     padding-bottom: 35px;
   } */
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    width: 65%;
+  }
 }
 
 .pricingCard:nth-child(2) {
@@ -906,6 +1009,18 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: 16px; /* 100% */
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 
 .ctaPrice {
@@ -967,7 +1082,12 @@ p {
   background-repeat: no-repeat;
   background-size: 100%;
   @media screen and (max-width: 1279px) {
-    width: inherit;
+    height: 100vh;
+    background: url("../images/circulo-azul-bottom.svg") bottom left;
+  }
+  @media screen and (max-width: 480px) {
+    height: 120vh;
+    background: url("../images/circulo-azul-bottom.svg") bottom left;
   }
 }
 
@@ -1096,15 +1216,57 @@ input {
 
 .textContainer {
   width: 40%;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .carruselContainer {
   width: 40%;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    width: 150%;
+  }
 }
 
 .swiper {
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-top: 84px;
+  }
 }
 .swiper-slide {
   display: flex;
@@ -1114,6 +1276,10 @@ input {
   background-color: #000;
   transition: transform 0.4s ease;
   cursor: pointer;
+  @media all and (max-width: 480px) {
+    height: 100%;
+    border-radius: 36px;
+  }
 }
 
 .navigation {
@@ -1144,14 +1310,59 @@ input {
   height: 64px;
 }
 
-.navigationMobile {
-  @media screen and (min-width: 1279px) {
-    display: flex;
+.desktopHidden {
+  @media screen and (min-width: 1024px) {
+    display: none;
   }
 }
 
 .mobileHidden {
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
+}
+
+/* MOBILE CARRUSEL */
+
+.swiper-container.products {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-slide.products {
+  height: 100%;
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: initial;
+}
+
+.greyBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px 0px;
+  gap: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  width: 320px;
+}
+
+.mobileVideo {
+  border-radius: 24px;
+  height: 445px;
+  margin-bottom: 40px;
+}
+
+.iphone {
+  width: 360px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: block;
+  position: relative;
 }

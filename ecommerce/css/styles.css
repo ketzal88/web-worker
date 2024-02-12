@@ -719,9 +719,24 @@ p {
   padding: 100px 0px;
   flex-direction: column;
   align-items: center;
-  @media screen and (max-width: 1279px) {
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
     padding: 48px 0px;
     max-width: 100%;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    padding: 48px 0px;
+    max-width: 100%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    padding: 48px 0px;
+    max-width: 100%;
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 48px 0px;
+    max-width: 480px;
   }
 }
 
@@ -915,11 +930,6 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.08);
   padding: 19 32 49 32;
-  /* @media screen and (max-width: 1279px) {
-    width: 75%;
-    padding-top: 35px;
-    padding-bottom: 35px;
-  } */
   @media all and (min-width: 1024px) and (max-width: 1280px) {
   }
 
@@ -1272,7 +1282,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 60px;
+  border-radius: 95px;
   background-color: #000;
   transition: transform 0.4s ease;
   cursor: pointer;

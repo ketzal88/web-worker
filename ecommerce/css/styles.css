@@ -1184,11 +1184,9 @@ input {
 
 .footer {
   display: flex;
-  max-width: 1230px;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 100%;
   margin-bottom: 100px;
   gap: 24px;
   padding: 48px;
@@ -1356,7 +1354,7 @@ input {
 .iphone {
   width: 360px;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .wrapper {

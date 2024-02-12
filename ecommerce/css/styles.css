@@ -240,6 +240,7 @@ p {
     url("../images/circulo-amarillo.svg") top right;
   background-repeat: no-repeat;
   background-size: 100%;
+  overflow-x: hidden;
 }
 
 /* MENU */
@@ -425,6 +426,7 @@ p {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .funnelSection {
@@ -721,7 +723,7 @@ p {
   align-items: center;
   @media screen and (max-width: 1279px) {
     padding: 48px 0px;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
 }
 
@@ -752,7 +754,7 @@ p {
 
 .slide-track {
   width: 100%;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   display: flex;
   gap: 10px;
   overflow: hidden;

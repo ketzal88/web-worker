@@ -61,7 +61,7 @@ p {
 
 #hero .hero-container {
   gap: 40px;
-  padding-top: 200px;
+  padding-top: 150px;
   margin-top: -100px;
   margin-bottom: 100px;
   margin-right: 120px;
@@ -760,6 +760,7 @@ p {
 
 .slider {
   margin-top: 70px;
+  overflow: hidden;
 }
 
 @keyframes scroll {

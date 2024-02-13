@@ -1367,3 +1367,8 @@ input {
   display: block;
   position: relative;
 }
+
+.textMobileContainer {
+  padding-left: 24px;
+  padding-right: 24px;
+}

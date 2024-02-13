@@ -1372,3 +1372,12 @@ input {
   padding-left: 24px;
   padding-right: 24px;
 }
+
+.formDivMobile {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}

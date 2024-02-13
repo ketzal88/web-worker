@@ -3,6 +3,30 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("backgroundBlack", window.scrollY > 0);
 });
 
+(function () {
+  // https://dashboard.emailjs.com/admin/account
+  emailjs.init("_7O_4vhiQx_mvdSX2");
+})();
+
+window.onload = function () {
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      // generate a five digit number for the contact_number variable
+      // this.contact_number.value = (Math.random() * 100000) | 0;
+      // these IDs from the previous steps
+      emailjs.sendForm("service_bifklqc", "template_fty71la", this).then(
+        function () {
+          window.location = "thank-you.html";
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
+    });
+};
+
 const driveSales = document.getElementById("driveSales");
 driveSales.addEventListener("click", () => {
   //boton

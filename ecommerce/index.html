@@ -26,6 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="../images/webclip.png" rel="apple-touch-icon" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!--  Google Tag Manager  -->
   <script>
@@ -650,18 +651,18 @@
             directly.</span> Or just send us<br /> a message
         </h1>
         <a onclick="return googleAdsMeeting();" target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
-          class="menuCTA" style="width: 200px; margin-top: 48px;">Book a meeting now</a>
+          class="menuCTA" style="margin-top: 48px;">Book a meeting now</a>
       </div>
-      <div>
-        <form style="display: flex; flex-direction: column;" id="email-form" name="email-form" data-name="Email Form"
-          action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
+      <div style="width: 100%;">
+        <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form" data-name="Email Form"
+          >
           <div class="formDivMobile">
-            <div>
+            <div style="width: 100%;">
               <label>Name</label>
               <input type="text" required data-name="Name" id="name" name="name" class="form-control"
                 placeholder="Enter your name">
-            </div>
-            <div>
+            </div >
+            <div style="width: 100%;">
               <label>Company</label>
               <input type="text" name="company" data-name="company" id="company" class="form-control"
                 placeholder="Enter your company name">

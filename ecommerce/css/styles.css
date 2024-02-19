@@ -78,6 +78,11 @@ p {
     margin-left: 24px;
   }
 
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
   @media all and (min-width: 768px) and (max-width: 1024px) {
     display: flex;
 
@@ -128,6 +133,10 @@ p {
     width: 100px;
   }
 
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    width: 100px;
+  }
+
   @media all and (min-width: 768px) and (max-width: 1024px) {
   }
 
@@ -151,6 +160,12 @@ p {
     font-style: normal;
     font-weight: 700;
     line-height: 48px;
+  }
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 116.667% */
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -181,6 +196,13 @@ p {
   @media all and (min-width: 1024px) and (max-width: 1280px) {
     font-size: 20px;
     line-height: 24px; /* 120% */
+  }
+
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -236,6 +258,14 @@ p {
   border-radius: 100px;
   background: #2b79ff;
   margin-top: 48px;
+
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 114.286% */
+  }
 }
 
 /* FIN HERO */
@@ -296,6 +326,27 @@ p {
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
+}
+
+.menuCTAHeader {
+  display: flex;
+  text-decoration: none;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #2b79ff;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  @media all and (max-width: 320px) {
+    display: none;
+  }
 }
 
 .menuLogo {

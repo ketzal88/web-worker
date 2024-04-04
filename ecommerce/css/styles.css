@@ -40,11 +40,10 @@ p {
 #hero {
   padding-bottom: 100px;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media all and (min-width: 1024px) and (max-width: 1280px) {
-    /* margin-right: 70px;
-    margin-left: 70px;
-    margin-top: 80px;
-    margin-bottom: 100px; */
   }
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -66,16 +65,17 @@ p {
   margin-bottom: 100px;
   margin-right: 120px;
   margin-left: 120px;
+  max-width: 1440px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   @media all and (min-width: 1024px) and (max-width: 1280px) {
     display: flex;
-
     flex-direction: column;
     margin-right: 24px;
     margin-left: 24px;
+    max-width: 90%;
   }
 
   @media all and (min-width: 1281px) and (max-width: 1439px) {
@@ -85,22 +85,23 @@ p {
 
   @media all and (min-width: 768px) and (max-width: 1024px) {
     display: flex;
-
     flex-direction: column;
     margin-right: 24px;
     margin-left: 24px;
+    max-width: 90%;
   }
 
   @media all and (min-width: 480px) and (max-width: 768px) {
     display: flex;
-
     flex-direction: column;
     margin-right: 24px;
     margin-left: 24px;
+    max-width: 90%;
   }
 
   @media all and (max-width: 480px) {
     display: flex;
+    max-width: 90%;
     flex-direction: column;
     margin-right: 24px;
     margin-left: 24px;

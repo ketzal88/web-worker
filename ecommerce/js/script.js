@@ -217,3 +217,16 @@ var productsSwiper = new Swiper(".swiper-container.products", {
   pagination: ".swiper-container.products .swiper-pagination",
   speed: 400,
 });
+
+function googleAdsMeeting() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "meeting",
+  });
+}
+function googleAdsForm() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "form",
+  });
+}

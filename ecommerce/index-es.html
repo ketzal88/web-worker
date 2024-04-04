@@ -23,8 +23,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="../images/webclip.png" rel="apple-touch-icon" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <style>
+    div.googleButton {
+      visibility: hidden;
+    }
+  </style>
   <!--  Google Tag Manager  -->
   <script>
     (function (w, d, s, l, i) {
@@ -40,20 +48,6 @@
   </script>
   <!--  End Google Tag Manager  -->
   <meta name="facebook-domain-verification" content="vebd8ubtq70pmb2s4knns2t2lwcxpz" />
-  <script type="text/javascript">
-    function googleAdsMeeting() {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "meeting",
-      });
-    }
-    function googleAdsForm() {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "form",
-      });
-    }
-  </script>
 </head>
 
 <body>
@@ -64,7 +58,7 @@
   <header id="header">
     <nav id="navbar" class="navbar">
       <img class="menuLogo" src="images/worker-Logo.svg" alt="worker logo" />
-      <a target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8" class="menuCTAHeader">Aumenta tus ventas</a>
+      <a href="#contacto" class="menuCTAHeader">Aumenta tus ventas</a>
     </nav>
   </header>
   <div class="heroBackground">
@@ -91,7 +85,7 @@
               <img src="images/partners/logo-klavillo.png" class="partnerImg" alt="klaviyo worker logo" />
             </div>
             <div>
-              <a target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8" class="ctaButton">Reserva una
+              <a href="#contacto" class="ctaButton">Reserva una
                 reunión</a>
             </div>
           </div>
@@ -153,8 +147,7 @@
                 <p class="included">Diseño para Anuncios e Email</p>
               </div>
             </div>
-            <a onclick="return googleAdsMeeting();" target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
-              class="ctaPrice">Reserva una reunión</a>
+            <a href="#contacto" class="ctaPrice">Reserva una reunión</a>
           </div>
           <div class="pricingCard">
             <div style="display: flex; align-items: flex-end; flex-direction: column;">
@@ -193,7 +186,7 @@
                 <p class="included">Email Automation & SMS</p>
               </div>
             </div>
-            <a target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8" class="ctaPriceBlue">Haz crecer tu
+            <a href="#contacto" class="ctaPriceBlue">Haz crecer tu
               tienda hoy</a>
           </div>
           <div class="pricingCard">
@@ -231,8 +224,7 @@
                 <p class="included">Equipo de diseño completo hasta 60hs por mes</p>
               </div>
             </div>
-            <a onclick="return googleAdsMeeting();" target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
-              class="ctaPrice">Reserva una reunión</a>
+            <a href="#contacto" class="ctaPrice">Reserva una reunión</a>
           </div>
         </div>
     </div>
@@ -241,20 +233,20 @@
   <section class="whiteSection">
     <div class="funnelSection">
       <h2 class="headlineProducts">
-        Contamos con un método COMPROBADO <br />
-        <span style="color: #2b79ff">para lograr resultados</span>
+        Trabajamos el Funnel <br />
+        <span style="color: #2b79ff">de conversión completo</span>
       </h2>
       <div class="carruselProducts mobileHidden">
         <div id="buttons ancho">
-          <div class="productButtons" id="driveSales">Atrae ventas</div>
+          <div class="productButtons" id="driveSales">Atraer</div>
           <div class="line"></div>
-          <a class="productButtons" id="generateLeads">Genera contactos</a>
-          <div class="line"></div>
-
-          <a class="productButtons" id="attractCustomers">Atrae nuevos clientes</a>
+          <a class="productButtons" id="generateLeads">Interés</a>
           <div class="line"></div>
 
-          <a class="productButtons" id="boostConversion">Aumenta la conversión</a>
+          <a class="productButtons" id="attractCustomers">Convertir</a>
+          <div class="line"></div>
+
+          <a class="productButtons" id="boostConversion">Fidelizar</a>
         </div>
         <div class="middle">
           <div class="inner ">
@@ -264,8 +256,7 @@
               <p class="productsTitle">Tu negocio crece</p>
               <p class="productsDescription">Expande tu negocio y aumenta tus ventas: llega a nuevos<br /> clientes en
                 donde nacen las tendencias globales. <br />Meta Ads + Programmatic Ads.</p>
-              <a onclick="return googleAdsMeeting();" target="_blank"
-                href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+              <a href="#contacto" style="text-decoration: none;">
                 <div class="bookAMeeting">
                   <p class="productsCTA">Reserva una reunión ahora</p>
                   <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -282,8 +273,7 @@
                 correos electrónicos atractivos emails
                 <br />Meta Ads + Google Ads + Email Automation
               </p>
-              <a onclick="return googleAdsMeeting();" target="_blank"
-                href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+              <a href="#contacto" style="text-decoration: none;">
                 <div class="bookAMeeting">
                   <p class="productsCTA">Reserva una reunión ahora</p>
                   <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -300,8 +290,7 @@
                 ventas. Meta
                 Ads & Google <br />Merchant Center + Email Marketing
               </p>
-              <a onclick="return googleAdsMeeting();" target="_blank"
-                href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+              <a href="#contacto" style="text-decoration: none;">
                 <div class="bookAMeeting">
                   <p class="productsCTA">Reserva una reunión ahora</p>
                   <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -317,8 +306,7 @@
               <p class="productsDescription">Direccióna las conversiones y alcanza tus objetivos con <br />Performance
                 Ad’s + UX
                 Design + Store<br /> Management.</p>
-              <a onclick="return googleAdsMeeting();" target="_blank"
-                href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+              <a href="#contacto" style="text-decoration: none;">
                 <div class="bookAMeeting">
                   <p class="productsCTA">Reserva una reunión ahora</p>
                   <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -340,8 +328,7 @@
                     <p class="productsTitle">Tu negocio crece</p>
                     <p class="productsDescription">Expande tu negocio y aumenta tus ventas: llega a nuevos<br />
                       clientes en donde nacen las tendencias globales. <br />Meta Ads + Programmatic Ads.</p>
-                    <a onclick="return googleAdsMeeting();" target="_blank"
-                      href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+                    <a href="#contacto" style="text-decoration: none;">
                       <div class="bookAMeeting">
                         <p class="productsCTA">Reserva una reunión ahora</p>
                         <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -360,8 +347,7 @@
                       correos electrónicos atractivos emails
                       <br />Meta Ads + Google Ads + Email Automation
                     </p>
-                    <a onclick="return googleAdsMeeting();" target="_blank"
-                      href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+                    <a href="#contacto" style="text-decoration: none;">
                       <div class="bookAMeeting">
                         <p class="productsCTA">Reserva una reunión ahora</p>
                         <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -380,8 +366,7 @@
                       para ventas. Meta
                       Ads & Google <br />Merchant Center + Email Marketing
                     </p>
-                    <a onclick="return googleAdsMeeting();" target="_blank"
-                      href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+                    <a href="#contacto" style="text-decoration: none;">
                       <div class="bookAMeeting">
                         <p class="productsCTA">Reserva una reunión ahora</p>
                         <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -398,9 +383,9 @@
                     <p class="productsTitle">Convierte la atención <br />en acción</p>
                     <p class="productsDescription">Direccióna las conversiones y alcanza tus objetivos con
                       <br />Performance Ad’s + UX
-                      Design + Store<br /> Management.</p>
-                    <a onclick="return googleAdsMeeting();" target="_blank"
-                      href="https://calendar.app.google/LbJGdM4VoUjQtikA8" style="text-decoration: none;">
+                      Design + Store<br /> Management.
+                    </p>
+                    <a href="#contacto" style="text-decoration: none;">
                       <div class="bookAMeeting">
                         <p class="productsCTA">Reserva una reunión ahora</p>
                         <img class="arrowCTABlue" src="images/arrow forward blue.svg" alt="arrow forward" />
@@ -416,7 +401,7 @@
     </div>
     <div class="stackOfTools">
       <h2 class="headlineStackOfTools">
-        Stack of tools
+        Herramientas que usamos
       </h2>
       <p class="descriptionTools">Gestionamos las herramientas correctas para que monitorear y optimizar tu funnel de
         ventas y el customer journey.
@@ -512,7 +497,7 @@
     </div>
     <div class="testimonialSection">
       <h2 class="headlineStackOfTools">
-        Nuestros clientes nos aman
+        Clientes que hicimos crecer
       </h2>
       <div class="cardWrapper">
         <div>
@@ -645,19 +630,25 @@
       </div>
     </div>
   </section>
-  <section class="bottomSection">
+  <section class="bottomSection" id="contacto">
     <div class="formSection">
       <div>
-        <Nos class="formTextHeader">
-          ¿Tienes preguntas? <span style="color: #FFC700">¡No te cortes!</span>
-            <br/>Nos puedes contactar directamente<br/> o mandarnos un mensaje.
+        <h1 class="formTextHeader">
+          ¿Tienes preguntas? <br /><span style="color: #FFC700">Reserva una reunión!</span>
         </h1>
-        <a onclick="return googleAdsMeeting();" target="_blank" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
-          class="menuCTA" style="margin-top: 48px;">Reserva una reunión ahora</a>
+        <a href="#google-scheduler" onclick="return googleAdsMeeting();" id="#googleButton" class="menuCTA mobileHidden"
+          style="margin-top: 48px; width: 250px;">Reserva
+          una reunión ahora</a>
+        <a target="_blank" onclick="return googleAdsMeeting();" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
+          class="menuCTAMobile desktopHidden" style="margin-top: 48px; width: 250px;">Reserva
+          una reunión ahora</a>
       </div>
       <div style="width: 100%;">
-        <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form" data-name="Email Form"
-          action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
+        <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form"
+        data-name="Email Form" action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
+        <h1 class="formTextHeader" style="padding-bottom: 16px;">
+          O deja tus datos y  <span style="color: #FFC700">te contactaremos</span>
+        </h1>
           <div class="formDivMobile">
             <div style="width: 100%;">
               <label>Nombre</label>
@@ -670,11 +661,22 @@
                 placeholder="Nombre de tu empresa">
             </div>
           </div>
-          <div style="display: flex; flex-direction: column;">
-            <label>Correo electrónico
-            </label>
-            <input type="email" required name="email" data-name="email" id="email" class="form-control"
-              placeholder="Ingresa tu correo electrónico">
+          <div class="formDivMobile">
+            <div style="width: 100%;">
+              <label>Correo electrónico
+              </label>
+              <input type="email" required name="email" data-name="email" id="email" class="form-control"
+                placeholder="Ingresa tu correo electrónico">
+            </div>
+            <div style="width: 100%;">
+              <label>Cuántos dólares inviertes por mes?</label>
+              <select name="budget" data-name="budget" id="budget" class="form-control">
+                <option value="-4.000">- 4.000 u$d</option>
+                <option value="4.000 a 8.000">4.000 a 8.000 u$d</option>
+                <option value="8.000 a 15.000">8.000 a 15.000 u$d</option>
+                <option value="+15.000">+ 15.000 u$d</option>
+              </select>              
+            </div>
           </div>
           <div style="display: flex; flex-direction: column;">
             <label>Mensaje</label>
@@ -682,7 +684,7 @@
               placeholder="Cuentanos un poco más...">
           </div>
           <div class="formButton">
-            <input  style="width: 200px;" onclick="return googleAdsForm();" type="submit" value="Enviar!"
+            <input style="width: 200px;" onclick="return googleAdsForm();" type="submit" value="Enviar!"
               data-wait="Please wait..." class="menuCTA" />
           </div>
         </form>
@@ -693,10 +695,37 @@
         <img class="footerImage" src="images/logo w.svg" alt="worker logo" />
         <p class="footerText">Working smarter and harder for your business</p>
       </div>
-      <p class="footerText">© Copyright <span id="year"></span>. All Rights Reserved.</p>
+    </div>
+    <p class="footerText">© Copyright <span id="year"></span>. All Rights Reserved.</p>
+    <div class="googleButton" style="display: none;">
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <script>
+        (function () {
+          var target = document.currentScript;
+          window.addEventListener('load', function () {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1m4NZB3_Z2ezseCMzI7oLEl5J1LZCW-NT05g-J3c6ZHYNhPlF6zGzdX9f-vr1DyK7gefzSkt4I?gv=true',
+              style: "border: 0; width=100%; height=600; frameborder: 0",
+              color: '#039BE5',
+              label: 'Programar una cita',
+              target,
+            });
+          });
+        })();
+      </script>
+      <!-- end Google Calendar Appointment Scheduling -->
+    </div>
     </div>
   </section>
   </div>
+  <script>
+    $(document).ready(function () {
+      $('.menuCTA').click(function (event) {
+        event.preventDefault();
+        $('.googleButton button').click();
+      });
+    });
+  </script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>

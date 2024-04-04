@@ -108,6 +108,56 @@ p {
   }
 }
 
+.hero-container-auditoria {
+  gap: 150px;
+  padding-top: 150px;
+  margin-top: -100px;
+  margin-bottom: 100px;
+  margin-right: 120px;
+  margin-left: 120px;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-left: 24px;
+    max-width: 90%;
+  }
+
+  @media all and (min-width: 1281px) and (max-width: 1439px) {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-left: 24px;
+    max-width: 90%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-left: 24px;
+    max-width: 90%;
+  }
+
+  @media all and (max-width: 480px) {
+    display: flex;
+    max-width: 90%;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-left: 24px;
+  }
+}
+
 .partnersHolder {
   display: flex;
   align-items: flex-start;
@@ -740,6 +790,13 @@ p {
   -moz-transition: all 1s;
 }
 
+.videosVerticalHeader {
+  width: 400px;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+}
+
 .hidden {
   opacity: 0;
   transition: all 1s;
@@ -1342,6 +1399,25 @@ select {
   }
 
   @media all and (max-width: 480px) {
+    width: 150%;
+  }
+}
+
+.videoContainerAuditoria {
+  width: 40%;
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media all and (min-width: 480px) and (max-width: 768px) {
+  }
+
+  @media all and (max-width: 480px) {
+    display: flex;
+    justify-content: center;
     width: 150%;
   }
 }

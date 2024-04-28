@@ -16,6 +16,10 @@
  
  @media all and (max-width: 480px) { } */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   transition: background 0.4s ease-in;
@@ -343,6 +347,24 @@ p {
 }
 
 .menuCTA {
+  display: flex;
+  text-decoration: none;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #2b79ff;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.formCTA {
   display: flex;
   text-decoration: none;
   padding: 16px;
@@ -791,7 +813,8 @@ p {
 }
 
 .videosVerticalHeader {
-  width: 400px;
+  height: 100%;
+  width: 100%;
   transition: all 1s;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;

@@ -23,16 +23,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="../images/webclip.png" rel="apple-touch-icon" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-  <style>
+  <!-- <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script> -->
+  <!-- <style>
     div.googleButton {
       visibility: hidden;
     }
-  </style>
+  </style> -->
   <!--  Google Tag Manager  -->
   <script>
     (function (w, d, s, l, i) {
@@ -639,7 +639,7 @@
   </section>
   <section class="bottomSection" id="contacto">
     <div class="formSection">
-      <div>
+      <!-- <div>
         <h1 class="formTextHeader">
           ¿Tienes preguntas? <br /><span style="color: #FFC700">Reserva una reunión!</span>
         </h1>
@@ -649,12 +649,12 @@
         <a target="_blank" onclick="return googleAdsMeeting();" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
           class="menuCTAMobile desktopHidden" style="margin-top: 48px; width: 250px;">Reserva
           una reunión ahora</a>
-      </div>
+      </div> -->
       <div style="width: 100%;">
         <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form"
         data-name="Email Form" action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
-        <h1 class="formTextHeader" style="padding-bottom: 16px;">
-          O deja tus datos y  <span style="color: #FFC700">te contactaremos</span>
+        <h1 class="formTextHeader" style="padding-bottom: 16px; text-align: center;">
+          Deja tus datos y <span style="color: #FFC700"><br/> reserva una reunión</span>
         </h1>
           <div class="formDivMobile">
             <div style="width: 100%;">
@@ -692,7 +692,7 @@
           </div>
           <div class="formButton">
             <input style="width: 200px;" onclick="return googleAdsForm();" type="submit" value="Enviar!"
-              data-wait="Please wait..." class="menuCTA" />
+              data-wait="Please wait..." class="formCTA" />
           </div>
         </form>
       </div>
@@ -704,9 +704,9 @@
       </div>
     </div>
     <p class="footerText">© Copyright <span id="year"></span>. All Rights Reserved.</p>
-    <div class="googleButton" style="display: none;">
+    <!-- <div class="googleButton" style="display: none;"> -->
       <!-- Google Calendar Appointment Scheduling begin -->
-      <script>
+      <!-- <script>
         (function () {
           var target = document.currentScript;
           window.addEventListener('load', function () {
@@ -719,20 +719,20 @@
             });
           });
         })();
-      </script>
+      </script> -->
       <!-- end Google Calendar Appointment Scheduling -->
-    </div>
+    <!-- </div> -->
     </div>
   </section>
   </div>
-  <script>
+  <!-- <script>
     $(document).ready(function () {
       $('.menuCTA').click(function (event) {
         event.preventDefault();
         $('.googleButton button').click();
       });
     });
-  </script>
+  </script> -->
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>

@@ -23,16 +23,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="../images/webclip.png" rel="apple-touch-icon" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-  <style>
+  <!-- <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script> -->
+  <!-- <style>
     div.googleButton {
       visibility: hidden;
     }
-  </style>
+  </style> -->
   <!--  Google Tag Manager  -->
   <script>
     (function (w, d, s, l, i) {
@@ -90,7 +90,7 @@
             <video autoplay playsinline controls class="videosVerticalHeader"
               src="images/videos/auditoria-gratis.mp4" alt="worker auditoria"></video>
           </div>
-        </div>        
+        </div>
     </div>
     </section>
   </div>
@@ -496,7 +496,7 @@
   </section>
   <section class="bottomSection" id="contacto">
     <div class="formSection">
-      <div>
+      <!-- <div>
         <h1 class="formTextHeader">
           Reserva ahora <br /><span style="color: #FFC700">una auditoria gratis!</span>
         </h1>
@@ -504,12 +504,12 @@
           style="margin-top: 48px; width: 250px;">Reservar Auditoria Gratis</a>
         <a target="_blank" onclick="return googleAdsMeeting();" href="https://calendar.app.google/ez8kAGsaTupPBoCcA"
           class="menuCTAMobile desktopHidden" style="margin-top: 48px; width: 250px;">Reservar Auditoria Gratis</a>
-      </div>
+      </div> -->
       <div style="width: 100%;">
         <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form"
         data-name="Email Form" action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
-        <h1 class="formTextHeader" style="padding-bottom: 16px;">
-          O deja tus datos y  <span style="color: #FFC700">te contactaremos </span>
+        <h1 class="formTextHeader" style="padding-bottom: 16px; text-align: center;">
+          Deja tus datos y <span style="color: #FFC700"><br/> reserva una reunión</span>
         </h1>
           <div class="formDivMobile">
             <div style="width: 100%;">
@@ -519,7 +519,7 @@
             </div>
             <div style="width: 100%;">
               <label>Empresa</label>
-              <input type="text" name="company" data-name="company" id="company" class="form-control"
+              <input type="text" name="company" required data-name="company" id="company" class="form-control"
                 placeholder="Nombre de tu empresa">
             </div>
           </div>
@@ -532,7 +532,7 @@
             </div>
             <div style="width: 100%;">
               <label>Cuántos dólares inviertes por mes?</label>
-              <select name="budget" data-name="budget" id="budget" class="form-control">
+              <select name="budget" data-name="budget" required id="budget" class="form-control">
                 <option value="-4.000">- 4.000 u$d</option>
                 <option value="4.000 a 8.000">4.000 a 8.000 u$d</option>
                 <option value="8.000 a 15.000">8.000 a 15.000 u$d</option>
@@ -547,7 +547,7 @@
           </div>
           <div class="formButton">
             <input style="width: 200px;" onclick="return googleAdsForm();" type="submit" value="Enviar!"
-              data-wait="Please wait..." class="menuCTA" />
+              data-wait="Please wait..." class="formCTA" />
           </div>
         </form>
       </div>
@@ -559,9 +559,9 @@
       </div>
     </div>
     <p class="footerText">© Copyright <span id="year"></span>. All Rights Reserved.</p>
-    <div class="googleButton" style="display: none;">
+    <!-- <div class="googleButton" style="display: none;"> -->
       <!-- Google Calendar Appointment Scheduling begin -->
-      <script>
+      <!-- <script>
         (function () {
           var target = document.currentScript;
           window.addEventListener('load', function () {
@@ -574,20 +574,20 @@
             });
           });
         })();
-      </script>
+      </script> -->
       <!-- end Google Calendar Appointment Scheduling -->
-    </div>
+    <!-- </div> -->
     </div>
   </section>
   </div>
-  <script>
+  <!-- <script>
     $(document).ready(function () {
       $('.menuCTA').click(function (event) {
         event.preventDefault();
         $('.googleButton button').click();
       });
     });
-  </script>
+  </script> -->
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>

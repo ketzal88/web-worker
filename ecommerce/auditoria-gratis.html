@@ -498,20 +498,22 @@
     <div class="formSection">
       <!-- <div>
         <h1 class="formTextHeader">
-          Reserva ahora <br /><span style="color: #FFC700">una auditoria gratis!</span>
+          ¿Tienes preguntas? <br /><span style="color: #FFC700">Reserva una reunión!</span>
         </h1>
         <a href="#google-scheduler" onclick="return googleAdsMeeting();" id="#googleButton" class="menuCTA mobileHidden"
-          style="margin-top: 48px; width: 250px;">Reservar Auditoria Gratis</a>
-        <a target="_blank" onclick="return googleAdsMeeting();" href="https://calendar.app.google/ez8kAGsaTupPBoCcA"
-          class="menuCTAMobile desktopHidden" style="margin-top: 48px; width: 250px;">Reservar Auditoria Gratis</a>
+          style="margin-top: 48px; width: 250px;">Reserva
+          una reunión ahora</a>
+        <a target="_blank" onclick="return googleAdsMeeting();" href="https://calendar.app.google/LbJGdM4VoUjQtikA8"
+          class="menuCTAMobile desktopHidden" style="margin-top: 48px; width: 250px;">Reserva
+          una reunión ahora</a>
       </div> -->
       <div style="width: 100%;">
         <form style="display: flex; flex-direction: column;" id="contact-form" name="contact-form"
         data-name="Email Form" action="https://getform.io/f/56ce6342-6d07-495b-86af-68a01946c01a" method="post">
         <h1 class="formTextHeader" style="padding-bottom: 16px; text-align: center;">
-          Deja tus datos y <span style="color: #FFC700"><br/> reserva una reunión</span>
+          Deja tu email y <br/> <span style="color: #FFC700">reserva una auditoria</span>
         </h1>
-          <div class="formDivMobile">
+          <!-- <div class="formDivMobile">
             <div style="width: 100%;">
               <label>Nombre</label>
               <input type="text" required data-name="Name" id="name" name="name" class="form-control"
@@ -519,33 +521,33 @@
             </div>
             <div style="width: 100%;">
               <label>Empresa</label>
-              <input type="text" name="company" required data-name="company" id="company" class="form-control"
+              <input type="text" name="company" data-name="company" id="company" class="form-control"
                 placeholder="Nombre de tu empresa">
             </div>
-          </div>
+          </div> -->
           <div class="formDivMobile">
             <div style="width: 100%;">
-              <label>Correo electrónico
-              </label>
+              <!-- <label>Correo electrónico
+              </label> -->
               <input type="email" required name="email" data-name="email" id="email" class="form-control"
                 placeholder="Ingresa tu correo electrónico">
             </div>
-            <div style="width: 100%;">
+            <!-- <div style="width: 100%;">
               <label>Cuántos dólares inviertes por mes?</label>
-              <select name="budget" data-name="budget" required id="budget" class="form-control">
+              <select name="budget" data-name="budget" id="budget" class="form-control">
                 <option value="-4.000">- 4.000 u$d</option>
                 <option value="4.000 a 8.000">4.000 a 8.000 u$d</option>
                 <option value="8.000 a 15.000">8.000 a 15.000 u$d</option>
                 <option value="+15.000">+ 15.000 u$d</option>
               </select>              
-            </div>
+            </div> -->
           </div>
-          <div style="display: flex; flex-direction: column;">
+          <!-- <div style="display: flex; flex-direction: column;">
             <label>Mensaje</label>
             <input rows="5" name="message" data-name="message" id="message" class="form-control"
               placeholder="Cuentanos un poco más...">
-          </div>
-          <div class="formButton">
+          </div> -->
+          <div class="formButton" style="justify-content: center;">
             <input style="width: 200px;" onclick="return googleAdsForm();" type="submit" value="Enviar!"
               data-wait="Please wait..." class="formCTA" />
           </div>

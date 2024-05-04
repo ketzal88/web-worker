@@ -400,6 +400,24 @@ p {
   line-height: 16px;
 }
 
+.menuCTAMobileAmarrillo {
+  display: flex;
+  text-decoration: none;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #ffc700;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+}
+
 .menuCTAHeader {
   display: flex;
   text-decoration: none;

@@ -207,6 +207,10 @@ p {
   }
 }
 
+.wayofdothingsImg {
+  width: 80%;
+}
+
 .heroText {
   color: var(--Yellow, #fff);
   font-family: "Poppins", sans-serif;
@@ -1151,7 +1155,7 @@ p {
   font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 24px; /* 126.316% */
 }
 

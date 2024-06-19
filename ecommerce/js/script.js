@@ -18,7 +18,11 @@ window.onload = function () {
       // these IDs from the previous steps
       emailjs.sendForm("service_bifklqc", "template_fty71la", this).then(
         function () {
-          window.location = "thank-you.html";
+          if (window.location.href.includes("/index.html")) {
+            window.location = "thank-you-en.html";
+          } else {
+            window.location = "thank-you.html";
+          }
         },
         function (error) {
           console.log("FAILED...", error);

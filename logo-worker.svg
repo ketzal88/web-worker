@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" baseProfile="tiny-ps" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+  <title>Worker - Digital Agency</title>
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #020712;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="70" height="70" />
+  <path class="cls-2"
+    d="M3.48,14.14h9.62l6.93,28,7.73-28h7.44l7.73,28,6.93-28h9.62l-11.05,40h-10.42l-6.53-23.6-6.53,23.6h-10.42L3.48,14.14Z" />
+  <path class="cls-2" d="M57.48,49.64c0-3.01,2.49-5.5,5.5-5.5s5.5,2.49,5.5,5.5-2.49,5.5-5.5,5.5-5.5-2.49-5.5-5.5Z" />
+</svg>

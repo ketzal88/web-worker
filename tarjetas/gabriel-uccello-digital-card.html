@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Card</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .card h2 {
+        font-size: 24px;
+        margin: 12px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card h2 img {
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+        border-radius: 0;
+      }
+
+      .card p {
+        color: gray;
+        font-size: 14px;
+        margin: 8px 0;
+      }
+
+      .card a {
+        text-decoration: none;
+        color: #1a73e8;
+        font-size: 14px;
+      }
+
+      .card .buttons {
+        margin-top: 20px;
+      }
+
+      .card button {
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        margin: 10px 0;
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .card button:hover {
+        background-color: #155bb5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <!-- Profile Picture -->
+      <img src="gabriel-uccello.jpg" alt="Gabriel Uccello - Worker - CMO" />
+
+      <!-- Name and Company Logo -->
+      <h2>Gabriel Uccello</h2>
+
+      <p>CoFounder & CMO</p>
+      <p><a href="tel:+5491132556383">+54 (911) 3255-6383</a></p>
+      <p><a href="mailto:gabriel@worker.ar">gabriel@worker.ar</a></p>
+
+      <p><strong>Worker - Digital Marketing</strong></p>
+      <p><a href="https://workermkt.com">workermkt.com</a></p>
+
+      <div class="buttons">
+        <!-- Save Contact -->
+        <button onclick="saveContact()">Save my contact</button>
+
+        <!-- WhatsApp Me -->
+        <button onclick="openWhatsApp()">WhatsApp Me</button>
+
+        <!-- Add me to LinkedIn -->
+        <button onclick="openLinkedIn()">Add me to LinkedIn</button>
+      </div>
+    </div>
+
+    <script>
+      // Save Contact as vCard (.vcf) and POST request
+      function saveContact() {
+        // Post to endpoint
+        // postToEndpoint("/save-contact");
+
+        // Generate and download vCard
+        const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Gabriel Uccello
+ORG:Worker - Digital Marketing
+TITLE:CoFounder & CMO
+TEL:+5491132556383
+EMAIL:gabriel@worker.ar
+URL:https://workermkt.com
+END:VCARD`;
+
+        const blob = new Blob([vCardData], { type: "text/vcard" });
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "gabriel-uccello.vcf";
+        link.click();
+      }
+
+      // Open WhatsApp chat
+      function openWhatsApp() {
+        const phoneNumber = "+5491132556383"; // Replace with your number
+        window.open(`https://wa.me/${phoneNumber}`, "_blank");
+      }
+
+      // Open LinkedIn profile
+      function openLinkedIn() {
+        const linkedInURL = "https://www.linkedin.com/in/gabrieluccello"; // Replace with your LinkedIn URL
+        window.open(linkedInURL, "_blank");
+      }
+
+      // General POST to endpoint function
+      function postToEndpoint(endpoint) {
+        fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contact_id: "12345", // Replace with actual contact data
+          }),
+        }).then((response) => {
+          if (response.ok) {
+            alert("Action successful!");
+          } else {
+            alert("There was an error processing your request.");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

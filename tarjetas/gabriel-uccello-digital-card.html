@@ -119,14 +119,14 @@
 
         // Generate and download vCard
         const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Gabriel Uccello
-ORG:Worker - Digital Marketing
-TITLE:CoFounder & CMO
-TEL:+5491132556383
-EMAIL:gabriel@worker.ar
-URL:https://workermkt.com
-END:VCARD`;
+        VERSION:3.0
+        FN:Gabriel Uccello
+        ORG:Worker - Digital Marketing
+        TITLE:CoFounder & CMO
+        TEL:+5491132556383
+        EMAIL:gabriel@worker.ar
+        URL:https://workermkt.com
+        END:VCARD`;
 
         const blob = new Blob([vCardData], { type: "text/vcard" });
         const link = document.createElement("a");

@@ -1538,7 +1538,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
  <div class="faq-in">
   <div class="faq-l">
    <h2><span class="ln"><span>Preguntas,</span></span><span class="ln"><span>respondidas.</span></span></h2>
-   <div class="faq-card"><img src="faq-sebas.jpg" alt="Sebas, CEO de Worker"><div><p>¿Todavía tienes dudas? El diagnóstico es gratis y te quedas con qué mejorar.</p><a href="#diagnostico" class="lnk">Pedir diagnóstico</a></div></div>
+   <div class="faq-card"><img src="faq-sebas.jpg" alt="Sebas, CEO de Worker"><div><p>¿Todavía tenés dudas? El diagnóstico es gratis y te quedás con qué mejorar.</p><a href="#diagnostico" class="lnk">Pedir diagnóstico</a></div></div>
   </div>
   <div class="faq-list" id="faqList"></div>
  </div>
@@ -1549,6 +1549,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
   <div class="cta-top"><b>Tu marca.</b><span>Diagnóstico por Worker</span></div>
   <h2 id="ctaH"><span class="ln">Tu negocio,</span><span class="ln">con cerebro.</span></h2>
   <form id="ctaF" aria-label="Pedir diagnóstico" onsubmit="return false" novalidate>
+   <input type="text" name="hp" id="ctaHp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
    <span>Nuestra web es</span><label><span style="position:absolute;left:-9999px">Tu sitio web</span><input type="text" id="ctaWeb" placeholder="tumarca.com" autocomplete="url"></label>
    <span>e invertimos</span>
    <div class="dd" id="ctaDd"><span id="ddLbl" style="position:absolute;left:-9999px">Inversión mensual en anuncios</span>
@@ -2578,7 +2579,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
 <footer class="ft" id="pie">
  <div class="ft-in">
   <div class="ft-top">
-   <div><p>Cuéntanos cuánto inviertes.<br>Te decimos qué está fallando y por dónde crecer.</p><a href="mailto:escalar@worker.ar" class="lnk">escalar@worker.ar</a></div>
+   <div><p>Contanos cuánto invertís.<br>Te decimos qué está fallando y por dónde crecer.</p><a href="mailto:escalar@worker.ar" class="lnk">escalar@worker.ar</a></div>
    <div class="ft-cols">
     <div><small>Agencia</small><a href="#servicios">Servicios</a><a href="#casos">Casos</a></div>
     <div><small>Producto</small><a href="https://brain.worker.ar">Worker Brain</a><a href="#formas">Brain Lab</a></div>
@@ -2925,15 +2926,15 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
     vias.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.via;window.ctaVia=v;vias.forEach(x=>x.setAttribute('aria-checked',String(x===b)));telL.hidden=v!=='wa';mailL.hidden=v!=='mail';err.classList.remove('on');(v==='wa'?tel:mail).focus();}));
     let sending=false;
     document.getElementById('ctaB').addEventListener('click',e=>{e.preventDefault(); if(sending) return;
-      const miss=[]; if(!web.value.trim()) miss.push([web,'tu web',web]); if(!val) miss.push([pick,'cuánto inviertes',pick]); if(!ctaContactOk()) miss.push(window.ctaVia==='mail'?[mail.parentElement,'tu mail',mail]:[tel.parentElement,'tu WhatsApp',tel]);
+      const miss=[]; if(!web.value.trim()) miss.push([web,'tu web',web]); if(!val) miss.push([pick,'cuánto invertís',pick]); if(!ctaContactOk()) miss.push(window.ctaVia==='mail'?[mail.parentElement,'tu mail',mail]:[tel.parentElement,'tu WhatsApp',tel]);
       if(miss.length){ miss.forEach(m=>{m[0].classList.remove('err-f');void m[0].offsetWidth;m[0].classList.add('err-f');}); const n=miss.map(m=>m[1]); errT.textContent='Brain · Me falta '+(n.length>1?n.slice(0,-1).join(', ')+' y '+n[n.length-1]:n[0])+' para armarte el diagnóstico.'; err.classList.add('on'); miss[0][2].focus(); return; }
       err.classList.remove('on');
-      const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'es',page:location.pathname,ref:document.referrer};
+      const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'es',page:location.pathname,ref:document.referrer,hp:(document.getElementById('ctaHp')||{}).value||''};
       ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{if(q.get(k)) body[k]=q.get(k);});
       const done=()=>{try{window.dataLayer=window.dataLayer||[];dataLayer.push({event:'lead_diagnostico',canal:via});window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('event','generate_lead',{send_to:'G-9FWZKLT40S',canal:via});if(window.fbq)fbq('track','Lead',{content_name:'diagnostico',canal:via});}catch(_){}const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');document.getElementById('ctaOkT').textContent=via==='wa'?'Listo. Seguimos la charla por WhatsApp.':'Recibido. Te escribimos por mail en menos de 24 h hábiles.';cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})};
       const post=o=>fetch('/api/lead',Object.assign({method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)},o||{}));
-      if(via==='wa'){ post({keepalive:true}).catch(()=>{}); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hola Worker, quiero el diagnóstico. Nuestra web es '+body.web+' y invertimos '+body.inv+' por mes en anuncios.'),'_blank','noopener'); done(); return; }
-      sending=true; post().then(r=>{if(!r.ok) throw 0; done();}).catch(()=>{errT.textContent='Brain · No pude enviarlo. Escríbenos a escalar@worker.ar.';err.classList.add('on');}).finally(()=>{sending=false;});
+      if(via==='wa'){ const send=()=>post({keepalive:true}).then(r=>{if(!r.ok) throw 0;}); send().catch(()=>setTimeout(()=>send().catch(()=>{}),1500)); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hola Worker, quiero el diagnóstico. Nuestra web es '+body.web+' y invertimos '+body.inv+' por mes en anuncios.'),'_blank','noopener'); done(); return; }
+      sending=true; post().then(r=>{if(!r.ok) throw 0; done();}).catch(()=>{errT.textContent='Brain · No pude enviarlo. Escribinos a escalar@worker.ar.';err.classList.add('on');}).finally(()=>{sending=false;});
     });
     // testimonial: single quote lights up word by word
     const qs=[...document.querySelectorAll('.tst-q')];
@@ -3464,7 +3465,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
   const subOf = (id) => { const q = SUB[id]; if (!q) return -1; return [...document.querySelectorAll(q)].findIndex((l) => l.classList.contains('on')); };
   // where his eyes go when you are not moving: toward the content of each section
   const LOOK = { arco: [-0.7, -0.5], esp: [-1, -0.6], reel: [-1, -0.3], servicios: [-1, -0.1], arrancar: [-1, -0.4], formas: [-0.9, -0.5], testimonios: [-1, -0.4], faq: [-1, -0.2], diagnostico: [-0.8, -0.2], pie: [-1, -0.3] };
-  const LINES = ['¡Ey! Aquí abajo también trabajo.', 'Te sigo, eh. Es mi trabajo.', 'Mientras lees, yo optimizo.', 'Si quieres el diagnóstico, está ahí abajo.', 'Listo, ya somos amigos.'];
+  const LINES = ['¡Ey! Aquí abajo también trabajo.', 'Te sigo, eh. Es mi trabajo.', 'Mientras leés, yo optimizo.', 'Si querés el diagnóstico, está ahí abajo.', 'Listo, ya somos amigos.'];
   const secs = Object.keys(SAY).map((id) => document.getElementById(id)).filter(Boolean);
 
   addEventListener('pointermove', (e) => { U.mx = e.clientX; U.my = e.clientY; U.lastMove = performance.now(); if (S.mode === 'sleep') setMode('happy', U.lastMove, 900); }, { passive: true });
@@ -3490,7 +3491,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
   if (ctaB && cta) ctaB.addEventListener('click', () => setTimeout(() => {
     if (cta.classList.contains('sent')) { received(); U.line = 'Recibido. Ya lo estoy leyendo.'; U.lineUntil = performance.now() + 4000; return; }
     const err = document.getElementById('ctaErr'); if (!err || !err.classList.contains('on')) return;
-    const miss = []; if (!fWeb.value.trim()) miss.push('tu web'); if (fPick.textContent === 'cuánto') miss.push('cuánto inviertes'); if (!window.ctaContactOk()) miss.push(window.ctaVia === 'mail' ? 'el mail' : 'el WhatsApp');
+    const miss = []; if (!fWeb.value.trim()) miss.push('tu web'); if (fPick.textContent === 'cuánto') miss.push('cuánto invertís'); if (!window.ctaContactOk()) miss.push(window.ctaVia === 'mail' ? 'el mail' : 'el WhatsApp');
     if (!miss.length) return; buzz([fForm]);
     talk(miss.length === 1 ? 'Te falta ' + miss[0] + '.' : 'Te faltan ' + miss.slice(0, -1).join(', ') + ' y ' + miss[miss.length - 1] + '.', null, 4000); }, 30));
 

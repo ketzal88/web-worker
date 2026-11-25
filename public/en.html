@@ -1549,6 +1549,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
   <div class="cta-top"><b>Your brand.</b><span>Audit by Worker</span></div>
   <h2 id="ctaH"><span class="ln">Your business,</span><span class="ln">with a brain.</span></h2>
   <form id="ctaF" aria-label="Get an audit" onsubmit="return false" novalidate>
+   <input type="text" name="hp" id="ctaHp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
    <span>Our website is</span><label><span style="position:absolute;left:-9999px">Your website</span><input type="text" id="ctaWeb" placeholder="yourbrand.com" autocomplete="url"></label>
    <span>and we invest</span>
    <div class="dd" id="ctaDd"><span id="ddLbl" style="position:absolute;left:-9999px">Monthly ad spend</span>
@@ -2928,11 +2929,11 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
       const miss=[]; if(!web.value.trim()) miss.push([web,'your website',web]); if(!val) miss.push([pick,'how much you spend',pick]); if(!ctaContactOk()) miss.push(window.ctaVia==='mail'?[mail.parentElement,'your email',mail]:[tel.parentElement,'your WhatsApp',tel]);
       if(miss.length){ miss.forEach(m=>{m[0].classList.remove('err-f');void m[0].offsetWidth;m[0].classList.add('err-f');}); const n=miss.map(m=>m[1]); errT.textContent='Brain · I still need '+(n.length>1?n.slice(0,-1).join(', ')+' and '+n[n.length-1]:n[0])+' to put your audit together.'; err.classList.add('on'); miss[0][2].focus(); return; }
       err.classList.remove('on');
-      const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'en',page:location.pathname,ref:document.referrer};
+      const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'en',page:location.pathname,ref:document.referrer,hp:(document.getElementById('ctaHp')||{}).value||''};
       ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{if(q.get(k)) body[k]=q.get(k);});
       const done=()=>{try{window.dataLayer=window.dataLayer||[];dataLayer.push({event:'lead_diagnostico',canal:via});window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('event','generate_lead',{send_to:'G-9FWZKLT40S',canal:via});if(window.fbq)fbq('track','Lead',{content_name:'diagnostico',canal:via});}catch(_){}const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');document.getElementById('ctaOkT').textContent=via==='wa'?'Done. Let\'s keep talking on WhatsApp.':'Got it. We\'ll email you within 24 business hours.';cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})};
       const post=o=>fetch('/api/lead',Object.assign({method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)},o||{}));
-      if(via==='wa'){ post({keepalive:true}).catch(()=>{}); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hi Worker, I want the audit. Our website is '+body.web+' and we spend '+body.inv+' a month on ads.'),'_blank','noopener'); done(); return; }
+      if(via==='wa'){ const send=()=>post({keepalive:true}).then(r=>{if(!r.ok) throw 0;}); send().catch(()=>setTimeout(()=>send().catch(()=>{}),1500)); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hi Worker, I want the audit. Our website is '+body.web+' and we spend '+body.inv+' a month on ads.'),'_blank','noopener'); done(); return; }
       sending=true; post().then(r=>{if(!r.ok) throw 0; done();}).catch(()=>{errT.textContent='Brain · I could not send it. Email us at escalar@worker.ar.';err.classList.add('on');}).finally(()=>{sending=false;});
     });
     // testimonial: single quote lights up word by word

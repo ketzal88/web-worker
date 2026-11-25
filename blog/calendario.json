@@ -8,7 +8,7 @@
     "Una rutina consume este archivo: al publicar un articulo cambiar estado a publicado."
   ],
   "items": [
-    { "semana": 1, "fecha": "2026-12-01", "idioma": "es", "numero": 8, "titulo": "Qué es el ROAS, cómo se calcula y cuál es un buen ROAS para tu tienda", "slug": "que-es-el-roas-como-se-calcula", "pillar": "metricas", "keyword": "roas", "traduccion": "roas-calculator-breakeven-roas", "estado": "pendiente" },
+    { "semana": 1, "fecha": "2026-12-01", "idioma": "es", "numero": 8, "titulo": "Qué es el ROAS, cómo se calcula y cuál es un buen ROAS para tu tienda", "slug": "que-es-el-roas-como-se-calcula", "pillar": "metricas", "keyword": "roas", "traduccion": "roas-calculator-breakeven-roas", "estado": "publicado", "url": "https://worker.ar/blog/metricas/que-es-el-roas-como-se-calcula/" },
     { "semana": 1, "fecha": "2026-12-03", "idioma": "es", "numero": 2, "titulo": "Administrador de anuncios de Meta: qué mirar todos los días (y qué no tocar)", "slug": "administrador-de-anuncios-de-meta", "pillar": "meta-ads", "keyword": "administrador de anuncios meta", "traduccion": null, "estado": "pendiente" },
     { "semana": 1, "fecha": "2026-12-02", "idioma": "en", "numero": 1, "titulo": "ROAS calculator: how to find your breakeven ROAS", "slug": "roas-calculator-breakeven-roas", "pillar": "metricas", "keyword": "roas calculation", "traduccion": "que-es-el-roas-como-se-calcula", "estado": "pendiente" },
     { "semana": 2, "fecha": "2026-12-08", "idioma": "es", "numero": 1, "titulo": "Meta Ads: guía para tiendas online en 2027", "slug": "meta-ads-guia-tiendas-online", "pillar": "meta-ads", "keyword": "meta ads", "traduccion": "advantage-plus-for-ecommerce", "estado": "pendiente" },

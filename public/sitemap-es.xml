@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <url><loc>https://worker.ar/</loc><xhtml:link rel="alternate" hreflang="es" href="https://worker.ar/"/><xhtml:link rel="alternate" hreflang="en" href="https://workermkt.com/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://worker.ar/"/></url>
+<url><loc>https://worker.ar/blog/</loc><lastmod>2026-11-25</lastmod></url>
+<url><loc>https://worker.ar/blog/metricas/</loc><lastmod>2026-11-25</lastmod></url>
+<url><loc>https://worker.ar/blog/metricas/que-es-el-roas-como-se-calcula/</loc><lastmod>2026-11-25</lastmod></url>
 </urlset>

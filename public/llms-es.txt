@@ -28,3 +28,7 @@ Trabajamos con ecommerce que ya venden y quieren crecer, y con empresas B2B que 
 - [Diagnóstico de ecommerce](https://brain.worker.ar/herramientas/diagnostico-ecommerce)
 - [Calculadora de conversión](https://brain.worker.ar/herramientas/calculadora-conversion)
 - [Calculadora de WhatsApp](https://brain.worker.ar/herramientas/calculadora-whatsapp)
+
+## Artículos
+
+- [Qué es el ROAS, cómo se calcula y cuál es un buen ROAS para tu tienda](https://worker.ar/blog/metricas/que-es-el-roas-como-se-calcula.md): El ROAS es lo que facturás por cada peso de publicidad. Fórmula, ejemplo con números y cómo calcular el ROAS de equilibrio para saber si ganás plata.

@@ -619,6 +619,7 @@ video.reel-f.on{animation:none}
 .cta .tel:focus-within{border-bottom-color:#fff}
 .cta .tel b{font:500 .5em/1 var(--mono);letter-spacing:0;padding-left:4px;white-space:nowrap}
 .cta .tel input{border:0;width:min(250px,56vw)}
+.cta .via{display:inline-flex;align-items:baseline;gap:6px}.cta .via button{font:inherit;letter-spacing:inherit;color:inherit;background:transparent;border:0;border-bottom:2px solid transparent;padding:0 2px;cursor:pointer;opacity:.4;transition:opacity .3s,border-color .3s}.cta .via button[aria-checked="true"]{opacity:1;border-bottom-color:currentColor}.cta .via button:hover{opacity:1}.cta .via i{font-style:normal;opacity:.4}.cta label[hidden]{display:none}
 .cta .err-f{border-bottom-color:#fff!important;animation:cta-shake .45s}
 @keyframes cta-shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 /* dropdown: same underline as the inputs; opens a dark panel with the site's corner brackets */
@@ -1560,13 +1561,13 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
     </ul>
    </div>
    <span>por mes en anuncios.</span>
-   <span>Escríbanme por WhatsApp al</span><label class="tel"><b aria-hidden="true">+54 9</b><span style="position:absolute;left:-9999px">Tu WhatsApp</span><input type="tel" id="ctaTel" placeholder="11 2345 6789" autocomplete="tel-national" inputmode="tel"></label><span>para arrancar el diagnóstico.</span>
+   <span>Escríbanme por</span><span class="via" role="radiogroup" aria-label="Cómo te contactamos"><button type="button" role="radio" aria-checked="true" data-via="wa">WhatsApp</button><i aria-hidden="true">/</i><button type="button" role="radio" aria-checked="false" data-via="mail">mail</button></span><span>al</span><label class="tel" id="ctaTelL"><b aria-hidden="true">+54 9</b><span style="position:absolute;left:-9999px">Tu WhatsApp</span><input type="tel" id="ctaTel" placeholder="11 2345 6789" autocomplete="tel-national" inputmode="tel"></label><label id="ctaMailL" hidden><span style="position:absolute;left:-9999px">Tu mail</span><input type="email" id="ctaMail" placeholder="tu@tumarca.com" autocomplete="email" inputmode="email"></label><span>para arrancar el diagnóstico.</span>
   </form>
   <div class="cta-foot">
    <div><a href="#diagnostico" class="brk" id="ctaB"><i></i>Pedir diagnóstico gratis</a>
     <span class="cta-err" id="ctaErr" role="status"><img src="brain-avatar.jpg" alt=""><span id="ctaErrT"></span></span>
-    <small class="cta-priv">Usamos tu número solo para el diagnóstico.</small>
-    <span class="cta-ok"><img src="brain-avatar.jpg" alt=""><span><small>Brain · <span id="ctaT">--:--</span></small>Recibido. Te escribimos por WhatsApp en menos de 24 h hábiles.</span></span>
+    <small class="cta-priv">Usamos tus datos solo para el diagnóstico.</small>
+    <span class="cta-ok"><img src="brain-avatar.jpg" alt=""><span><small>Brain · <span id="ctaT">--:--</span></small><span id="ctaOkT">Recibido. Te escribimos en menos de 24 h hábiles.</span></span></span>
     <p>Conectamos tus datos a Brain y te devolvemos qué está fallando y por dónde crecer. Te quedas con el diagnóstico, trabajes con nosotros o no.</p></div>
    <span style="font:400 11px/1 var(--mono)">Respondemos en 24 h hábiles</span>
   </div>
@@ -2915,12 +2916,24 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
       else if(e.key==='Escape'&&open){e.preventDefault();openDd(false);}});
     document.addEventListener('pointerdown',e=>{if(!dd.contains(e.target))openDd(false);});
     // submit: Brain asks for whatever is missing
-    const web=document.getElementById('ctaWeb'), tel=document.getElementById('ctaTel'), err=document.getElementById('ctaErr'), errT=document.getElementById('ctaErrT');
-    [web,tel].forEach(x=>x.addEventListener('input',()=>{(x===tel?x.parentElement:x).classList.remove('err-f');err.classList.remove('on');}));
-    document.getElementById('ctaB').addEventListener('click',e=>{e.preventDefault();
-      const miss=[]; if(!web.value.trim()) miss.push([web,'tu web',web]); if(!val) miss.push([pick,'cuánto inviertes',pick]); if(tel.value.replace(/\D/g,'').length<8) miss.push([tel.parentElement,'tu WhatsApp',tel]);
+    const web=document.getElementById('ctaWeb'), tel=document.getElementById('ctaTel'), mail=document.getElementById('ctaMail'), err=document.getElementById('ctaErr'), errT=document.getElementById('ctaErrT');
+    [web,tel,mail].forEach(x=>x.addEventListener('input',()=>{(x===web?x:x.parentElement).classList.remove('err-f');err.classList.remove('on');}));
+    const vias=[...document.querySelectorAll('.cta .via button')], telL=document.getElementById('ctaTelL'), mailL=document.getElementById('ctaMailL');
+    window.ctaVia=(vias.find(b=>b.getAttribute('aria-checked')==='true')||vias[0]).dataset.via;
+    const ctaContactOk=window.ctaContactOk=()=>window.ctaVia==='mail'?/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail.value.trim()):tel.value.replace(/\D/g,'').length>=8;
+    vias.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.via;window.ctaVia=v;vias.forEach(x=>x.setAttribute('aria-checked',String(x===b)));telL.hidden=v!=='wa';mailL.hidden=v!=='mail';err.classList.remove('on');(v==='wa'?tel:mail).focus();}));
+    let sending=false;
+    document.getElementById('ctaB').addEventListener('click',e=>{e.preventDefault(); if(sending) return;
+      const miss=[]; if(!web.value.trim()) miss.push([web,'tu web',web]); if(!val) miss.push([pick,'cuánto inviertes',pick]); if(!ctaContactOk()) miss.push(window.ctaVia==='mail'?[mail.parentElement,'tu mail',mail]:[tel.parentElement,'tu WhatsApp',tel]);
       if(miss.length){ miss.forEach(m=>{m[0].classList.remove('err-f');void m[0].offsetWidth;m[0].classList.add('err-f');}); const n=miss.map(m=>m[1]); errT.textContent='Brain · Me falta '+(n.length>1?n.slice(0,-1).join(', ')+' y '+n[n.length-1]:n[0])+' para armarte el diagnóstico.'; err.classList.add('on'); miss[0][2].focus(); return; }
-      err.classList.remove('on');const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})});
+      err.classList.remove('on');
+      const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'es',page:location.pathname,ref:document.referrer};
+      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{if(q.get(k)) body[k]=q.get(k);});
+      const done=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');document.getElementById('ctaOkT').textContent=via==='wa'?'Listo. Seguimos la charla por WhatsApp.':'Recibido. Te escribimos por mail en menos de 24 h hábiles.';cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})};
+      const post=o=>fetch('/api/lead',Object.assign({method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)},o||{}));
+      if(via==='wa'){ post({keepalive:true}).catch(()=>{}); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hola Worker, quiero el diagnóstico. Nuestra web es '+body.web+' y invertimos '+body.inv+' por mes en anuncios.'),'_blank','noopener'); done(); return; }
+      sending=true; post().then(r=>{if(!r.ok) throw 0; done();}).catch(()=>{errT.textContent='Brain · No pude enviarlo. Escríbenos a escalar@worker.ar.';err.classList.add('on');}).finally(()=>{sending=false;});
+    });
     // testimonial: single quote lights up word by word
     const qs=[...document.querySelectorAll('.tst-q')];
     qs.forEach(q=>{const p=q.querySelector('p');p.innerHTML=p.textContent.split(' ').map(w=>'<span class="w">'+w+'</span>').join(' ')});
@@ -3476,7 +3489,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
   if (ctaB && cta) ctaB.addEventListener('click', () => setTimeout(() => {
     if (cta.classList.contains('sent')) { received(); U.line = 'Recibido. Ya lo estoy leyendo.'; U.lineUntil = performance.now() + 4000; return; }
     const err = document.getElementById('ctaErr'); if (!err || !err.classList.contains('on')) return;
-    const miss = []; if (!fWeb.value.trim()) miss.push('tu web'); if (fPick.textContent === 'cuánto') miss.push('cuánto inviertes'); if (fTel.value.replace(/\D/g, '').length < 8) miss.push('el WhatsApp');
+    const miss = []; if (!fWeb.value.trim()) miss.push('tu web'); if (fPick.textContent === 'cuánto') miss.push('cuánto inviertes'); if (!window.ctaContactOk()) miss.push(window.ctaVia === 'mail' ? 'el mail' : 'el WhatsApp');
     if (!miss.length) return; buzz([fForm]);
     talk(miss.length === 1 ? 'Te falta ' + miss[0] + '.' : 'Te faltan ' + miss.slice(0, -1).join(', ') + ' y ' + miss[miss.length - 1] + '.', null, 4000); }, 30));
 

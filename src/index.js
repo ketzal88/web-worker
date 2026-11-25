@@ -86,7 +86,7 @@ export default {
     }
 
     if (isHome) {
-      const enOnly = url.hostname.endsWith('workermkt.com');
+      const enOnly = url.hostname.endsWith('workermkt.com') && cookieLang(req) !== 'es';
       if (enOnly) {
         const r = await env.ASSETS.fetch(new Request(new URL('/en', url), req));
         return r;

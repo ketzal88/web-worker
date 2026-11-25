@@ -1,0 +1,10 @@
+{
+  "name": "worker-web",
+  "compatibility_date": "2026-11-01",
+  "account_id": "256a2457c9d730e1e6df01708cd093f7",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,13 @@
+# Funnel 2026 V2 (GHL) se mudo a programa.worker.ar el 2026-11-25
+/vsl                            https://programa.worker.ar/vsl 301
+/vsl/*                          https://programa.worker.ar/vsl 301
+/agendar-5802                   https://programa.worker.ar/agendar-5802 301
+/agendar-5802/*                 https://programa.worker.ar/agendar-5802 301
+/thank-you-page-vsl-v2          https://programa.worker.ar/thank-you-page-vsl-v2 301
+/thank-you-page-vsl-v2/*        https://programa.worker.ar/thank-you-page-vsl-v2 301
+/thank-you-page-v2-959813-4333  https://programa.worker.ar/thank-you-page-v2-959813-4333 301
+/thank-you-page-v2-959813-4333/* https://programa.worker.ar/thank-you-page-v2-959813-4333 301
+/thank-you-page-academia        https://programa.worker.ar/thank-you-page-academia 301
+/thank-you-page-academia/*      https://programa.worker.ar/thank-you-page-academia 301
+/funnel-2026-v2                 https://programa.worker.ar/funnel-2026-v2 301
+/funnel-2026-v2/*               https://programa.worker.ar/funnel-2026-v2 301

@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKVW3542');</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Worker | Agencia de marketing digital potenciada con IA</title>
 <link rel="alternate" hreflang="es" href="https://worker.ar/"><link rel="alternate" hreflang="en" href="https://worker.ar/en"><link rel="alternate" hreflang="x-default" href="https://worker.ar/">
@@ -2929,7 +2930,7 @@ a.cx-row:hover .cx-go i{transform:translateX(6px)}
       err.classList.remove('on');
       const via=window.ctaVia, q=new URLSearchParams(location.search), body={web:web.value.trim(),inv:val,via:via,tel:via==='wa'?tel.value:'',email:via==='mail'?mail.value.trim():'',lang:'es',page:location.pathname,ref:document.referrer};
       ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{if(q.get(k)) body[k]=q.get(k);});
-      const done=()=>{const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');document.getElementById('ctaOkT').textContent=via==='wa'?'Listo. Seguimos la charla por WhatsApp.':'Recibido. Te escribimos por mail en menos de 24 h hábiles.';cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})};
+      const done=()=>{try{window.dataLayer=window.dataLayer||[];dataLayer.push({event:'lead_diagnostico',canal:via});window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('event','generate_lead',{send_to:'G-9FWZKLT40S',canal:via});if(window.fbq)fbq('track','Lead',{content_name:'diagnostico',canal:via});}catch(_){}const d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));document.getElementById('ctaT').textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');document.getElementById('ctaOkT').textContent=via==='wa'?'Listo. Seguimos la charla por WhatsApp.':'Recibido. Te escribimos por mail en menos de 24 h hábiles.';cta.classList.add('sent');anim&&gsap.from(cta.querySelector('.cta-ok'),{y:14,opacity:0,duration:.8,ease:'expo.out'})};
       const post=o=>fetch('/api/lead',Object.assign({method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)},o||{}));
       if(via==='wa'){ post({keepalive:true}).catch(()=>{}); window.open('https://wa.me/5491177163453?text='+encodeURIComponent('Hola Worker, quiero el diagnóstico. Nuestra web es '+body.web+' y invertimos '+body.inv+' por mes en anuncios.'),'_blank','noopener'); done(); return; }
       sending=true; post().then(r=>{if(!r.ok) throw 0; done();}).catch(()=>{errT.textContent='Brain · No pude enviarlo. Escríbenos a escalar@worker.ar.';err.classList.add('on');}).finally(()=>{sending=false;});

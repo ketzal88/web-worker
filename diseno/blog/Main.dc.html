@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Blog de Worker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#EEEDE9}
+a{color:#141412;text-decoration:none}a:hover{color:#6E6C65}
+</style>
+</helmet>
+<div style="background: #EEEDE9; color: #141412; font-family: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif; min-height: 100vh">
+
+<header style="border-bottom: 1px solid rgba(20,20,18,.14)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+<a href="#" style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em">Worker<span style="color: #F5C400">.</span></a>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 22px; font-size: 15px; flex-grow: 1">
+<a href="#">Servicios</a><a href="#">Casos</a><a href="#">Agencia y Brain</a><a href="#" style="font-weight: 600; border-bottom: 2px solid #F5C400">Blog</a><a href="#">Preguntas</a>
+</nav>
+<a href="#" style="background: #141412; color: #F6F2EA; padding: 12px 20px; border-radius: 999px; font-size: 15px; font-weight: 600; min-height: 20px">Pedir diagnóstico →</a>
+</div>
+</header>
+
+<section style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end">
+<div style="flex: 999 1 560px; min-width: 0">
+<p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #6E6C65">Blog · Ecommerce y B2B</p>
+<h1 style="margin: 0; font-size: clamp(44px, 6vw, 84px); line-height: .98; letter-spacing: -0.035em; font-weight: 700">Lo que aprendemos<br>moviendo números.</h1>
+<p style="margin: 24px 0 0; font-size: 20px; line-height: 1.45; color: #3E3C37; max-width: 620px">Guías de Meta Ads, Google Ads, tiendas y email escritas por el equipo que maneja las cuentas, con lo que Brain ve todos los días en la cartera.</p>
+</div>
+<form style="flex: 1 1 340px; background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<label for="buscar" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #6E6C65">Buscar en el blog</label>
+<div style="display: flex; gap: 8px">
+<input id="buscar" type="search" placeholder="Ej: costo por compra, Hot Sale, Klaviyo" style="flex-grow: 1; min-width: 0; border: 1px solid rgba(20,20,18,.2); background: #EEEDE9; border-radius: 10px; padding: 12px 14px; font: inherit; font-size: 15px; min-height: 22px">
+<button type="submit" aria-label="Buscar" style="border: 0; background: #F5C400; border-radius: 10px; width: 48px; min-height: 46px; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141412" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
+</div>
+</form>
+</section>
+
+<nav aria-label="Categorías" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#" style="background: #141412; color: #F6F2EA; padding: 10px 18px; border-radius: 999px; font-size: 15px">Todo</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">Meta Ads</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">Google Ads</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">Creatividades</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">Tiendas y CRO</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">Email y WhatsApp</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">B2B</a>
+<a href="#" style="border: 1px solid rgba(20,20,18,.2); padding: 10px 18px; border-radius: 999px; font-size: 15px">IA y Brain</a>
+</nav>
+
+<section aria-label="Destacado" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 64px">
+<a href="Articulo.dc.html" style="display: flex; flex-wrap: wrap; background: #0C0B0A; color: #F6F2EA; border-radius: 24px; overflow: hidden">
+<div style="flex: 1 1 520px; min-height: 380px; background: #181512; position: relative; display: flex; align-items: flex-end; padding: 36px; box-sizing: border-box">
+<div style="position: absolute; top: 32px; left: 36px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #A39E93; letter-spacing: .08em; text-transform: uppercase">[Imagen de portada · 1200×630]</div>
+<div style="display: flex; flex-direction: column; gap: 10px; width: 100%">
+<div style="background: rgba(246,242,234,.06); border: 1px solid rgba(246,242,234,.14); border-radius: 14px; padding: 16px 18px; font-size: 15px; line-height: 1.4">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #F5C400; text-transform: uppercase; letter-spacing: .08em">Alerta de Brain · Meta Ads</span><br>Pico de costo por compra en un conjunto. Propuesta: rotar el creativo y mover presupuesto.
+</div>
+</div>
+</div>
+<div style="flex: 1 1 420px; padding: 44px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; justify-content: center">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #F5C400">Destacado · Meta Ads · 12 min</p>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.05; letter-spacing: -0.025em; font-weight: 700">Cómo bajar el costo por compra en Meta Ads sin apagar todo</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #CFC9BD">El orden en que revisamos una cuenta cuando el costo por compra se dispara: creativos, presupuesto, seguimiento y tienda.</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #A39E93">Por Gabriel Uccello · Actualizado el 25/11/2026</p>
+</div>
+</a>
+</section>
+
+<section aria-label="Últimos artículos" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 72px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 24px">
+<h2 style="margin: 0; font-size: 30px; letter-spacing: -0.02em">Últimos artículos</h2>
+<a href="#" style="font-size: 15px; border-bottom: 1px solid #141412">Ver todos →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px">
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #F5C400; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Google Ads<br>para ecommerce</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">Google Ads · 9 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">Performance Max o Shopping estándar: cuándo conviene cada uno</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">Qué mirar antes de migrar el catálogo y cómo separar marca de no marca.</p>
+</div>
+</a>
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #141412; color: #F6F2EA; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Fatiga<br>creativa</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">Creatividades · 7 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">Cómo darte cuenta de que un anuncio se gastó antes de que lo diga el número</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">Las señales que separan fatiga real de un problema de audiencia.</p>
+</div>
+</a>
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #EFBD8E; color: #2A1A10; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Carrito<br>abandonado</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">Email y WhatsApp · 8 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">El flujo de carrito abandonado que armamos en cada tienda nueva</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">Cuántos mails, cuándo mandarlos y qué poner en cada uno, en Klaviyo y Perfit.</p>
+</div>
+</a>
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #EEDAD6; color: #231B24; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Tiendanube<br>que convierte</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">Tiendas y CRO · 10 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">Checklist de ficha de producto antes de prender anuncios</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">Fotos, talles, envío y confianza: lo que revisamos en la semana 1.</p>
+</div>
+</a>
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #0B0A0C; color: #F5C400; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Leads B2B<br>calificados</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">B2B · 11 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">Por qué tu formulario trae leads que ventas no quiere llamar</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">Preguntas de calificación, integración con el CRM y qué medir hasta la venta.</p>
+</div>
+</a>
+
+<a href="Articulo.dc.html" style="background: #FBFAF7; border: 1px solid rgba(20,20,18,.14); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 180px; background: #D9D6CE; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; line-height: 1">Aparecer<br>en ChatGPT</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6C65; text-transform: uppercase; letter-spacing: .06em">IA y Brain · 8 min</p>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em">Qué hace que una marca aparezca en las respuestas de ChatGPT y Gemini</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A4843">SEO para buscadores con IA, explicado con lo que medimos en la cartera.</p>
+</div>
+</a>
+
+</div>
+</section>
+
+<section aria-label="Recurso descargable" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 72px">
+<div style="background: #F5C400; border-radius: 24px; padding: 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<div style="flex: 999 1 460px; min-width: 0">
+<p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-transform: uppercase; letter-spacing: .08em">Recurso gratis</p>
+<h2 style="margin: 0; font-size: 44px; line-height: 1.02; letter-spacing: -0.03em">Auditá tu cuenta de Meta Ads en 30 minutos</h2>
+<p style="margin: 16px 0 0; font-size: 18px; line-height: 1.5; max-width: 560px">La planilla con los chequeos que hacemos en la primera semana con cada cliente nuevo. Te la mandamos por mail.</p>
+</div>
+<form style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 10px">
+<label for="lm-mail" style="font-size: 14px; font-weight: 600">Tu mail de trabajo</label>
+<input id="lm-mail" type="email" placeholder="nombre@tuempresa.com" style="border: 1px solid #141412; background: #FBFAF7; border-radius: 12px; padding: 14px 16px; font: inherit; font-size: 16px">
+<label for="lm-web" style="font-size: 14px; font-weight: 600">Web de tu marca</label>
+<input id="lm-web" type="url" placeholder="tumarca.com.ar" style="border: 1px solid #141412; background: #FBFAF7; border-radius: 12px; padding: 14px 16px; font: inherit; font-size: 16px">
+<button type="submit" style="margin-top: 6px; border: 0; background: #141412; color: #F6F2EA; border-radius: 999px; padding: 16px; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Quiero la planilla</button>
+</form>
+</div>
+</section>
+
+<section aria-label="Más leídos y temas" style="max-width: 1240px; margin: 0 auto; padding: 0 24px 80px; display: flex; flex-wrap: wrap; gap: 48px">
+<div style="flex: 999 1 560px; min-width: 0">
+<h2 style="margin: 0 0 20px; font-size: 30px; letter-spacing: -0.02em">Guías completas</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid rgba(20,20,18,.14)">
+<a href="#" style="display: flex; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(20,20,18,.14)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6E6C65">01</span><span style="font-size: 22px; font-weight: 600; flex-grow: 1">Meta Ads para ecommerce: la guía de punta a punta</span><span aria-hidden="true">→</span></a>
+<a href="#" style="display: flex; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(20,20,18,.14)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6E6C65">02</span><span style="font-size: 22px; font-weight: 600; flex-grow: 1">Google Ads para tiendas online</span><span aria-hidden="true">→</span></a>
+<a href="#" style="display: flex; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(20,20,18,.14)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6E6C65">03</span><span style="font-size: 22px; font-weight: 600; flex-grow: 1">Email marketing para ecommerce en Argentina</span><span aria-hidden="true">→</span></a>
+<a href="#" style="display: flex; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid rgba(20,20,18,.14)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6E6C65">04</span><span style="font-size: 22px; font-weight: 600; flex-grow: 1">Generación de leads B2B con anuncios</span><span aria-hidden="true">→</span></a>
+</div>
+</div>
+<aside style="flex: 1 1 340px; background: #0C0B0A; color: #F6F2EA; border-radius: 20px; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; align-self: flex-start">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #F5C400; text-transform: uppercase; letter-spacing: .08em">Newsletter · cada 15 días</p>
+<h2 style="margin: 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em">Lo que vio Brain esta quincena</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #CFC9BD">Un mail corto con un hallazgo de la cartera y qué hicimos con él.</p>
+<label for="nl-mail" style="font-size: 14px; color: #CFC9BD">Tu mail</label>
+<input id="nl-mail" type="email" placeholder="nombre@tuempresa.com" style="border: 1px solid rgba(246,242,234,.25); background: #181512; color: #F6F2EA; border-radius: 12px; padding: 14px 16px; font: inherit; font-size: 16px">
+<button type="submit" style="border: 0; background: #F5C400; color: #141412; border-radius: 999px; padding: 14px; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Suscribirme</button>
+</aside>
+</section>
+
+<footer style="background: #0C0B0A; color: #A39E93">
+<div style="max-width: 1240px; margin: 0 auto; padding: 56px 24px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #F6F2EA; font-size: 32px; font-weight: 700; letter-spacing: -0.02em">¿Querés que miremos tu cuenta?</p>
+<p style="margin: 0; font-size: 16px">Diagnóstico gratis de Meta, Google y tienda. Te respondemos en 24 horas hábiles.</p>
+</div>
+<a href="#" style="background: #F5C400; color: #141412; padding: 16px 28px; border-radius: 999px; font-size: 16px; font-weight: 600">Pedir diagnóstico gratis →</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

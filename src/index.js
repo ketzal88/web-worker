@@ -22,6 +22,25 @@ function redirect(url, extraHeaders = {}) {
   return new Response(null, { status: 302, headers: { Location: url, 'Cache-Control': 'private, no-store', Vary: 'Accept-Language, Cookie', ...extraHeaders } });
 }
 
+function redirect301(location) {
+  return new Response(null, { status: 301, headers: { Location: location, 'Cache-Control': 'public, max-age=3600' } });
+}
+
+// Archivos que dependen del host (sitemap y llms): los genera scripts/build.mjs.
+const HOST_FILES = {
+  '/sitemap.xml': { es: '/sitemap-es.xml', en: '/sitemap-en.xml' },
+  '/llms.txt': { es: '/llms-es.txt', en: '/llms-en.txt' },
+  '/llms-full.txt': { es: '/llms-full-es.txt', en: '/llms-full-en.txt' },
+};
+
+// Ruta del blog: { en: true|false, rest: lo que sigue a /blog } o null si no es del blog.
+function blogPath(p) {
+  for (const [prefix, en] of [['/en/blog', true], ['/blog', false]]) {
+    if (p === prefix || p.startsWith(prefix + '/')) return { en, rest: p.slice(prefix.length) };
+  }
+  return null;
+}
+
 // Lead del formulario de diagnostico -> contacto en GHL (location Worker) con tags y nota.
 const GHL = 'https://services.leadconnectorhq.com';
 const LOCATION = 'Zwjvo9JT2X190h2yTfhT';
@@ -117,6 +136,28 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === '/api/lead') return lead(req, env);
+
+    // Archivos por host: sitemap y llms (el build genera una version por idioma).
+    const enHost = url.hostname.endsWith('workermkt.com');
+    const esHost = url.hostname === 'worker.ar' || url.hostname === 'www.worker.ar';
+    const hostFile = HOST_FILES[url.pathname];
+    if (hostFile) {
+      const r = await env.ASSETS.fetch(new Request(new URL(hostFile[enHost ? 'en' : 'es'], url), req));
+      return r;
+    }
+
+    // Blog: workermkt.com sirve /en/blog/* como /blog/* (rewrite interno). En worker.ar, /en/blog/* redirige a workermkt.com.
+    const blog = blogPath(url.pathname);
+    if (blog) {
+      if (blog.en && esHost) return redirect301('https://workermkt.com/blog' + (blog.rest || '/') + url.search);
+      if (enHost) {
+        if (blog.en) return redirect301('/blog' + (blog.rest || '/') + url.search);
+        // Sin barra final no dejamos que Assets redirija a /en/blog/...: normalizamos aca.
+        if (!blog.rest || (!blog.rest.endsWith('/') && !/\.[a-z0-9]+$/i.test(blog.rest))) return redirect301(url.pathname + '/' + url.search);
+        return env.ASSETS.fetch(new Request(new URL('/en/blog' + blog.rest, url), req));
+      }
+    }
+
     const isHome = url.pathname === '/' || url.pathname === '/index.html';
     const isEn = url.pathname === '/en' || url.pathname === '/en.html' || url.pathname === '/en/';
 

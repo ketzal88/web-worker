@@ -8,3 +8,21 @@
   Cache-Control: public, max-age=604800
 /*.svg
   Cache-Control: public, max-age=604800
+/blog
+  Cache-Control: public, max-age=300
+/blog/*
+  Cache-Control: public, max-age=300
+/en/blog
+  Cache-Control: public, max-age=300
+/en/blog/*
+  Cache-Control: public, max-age=300
+/blog/*.md
+  Content-Type: text/markdown; charset=utf-8
+/en/blog/*.md
+  Content-Type: text/markdown; charset=utf-8
+/sitemap-*.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+/llms*.txt
+  Cache-Control: public, max-age=3600

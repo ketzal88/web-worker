@@ -1,0 +1,11 @@
+{
+  "name": "worker-web-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/lint-blog.mjs",
+    "check": "node scripts/lint-blog.mjs",
+    "test": "node --test"
+  }
+}

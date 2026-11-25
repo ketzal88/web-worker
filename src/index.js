@@ -30,7 +30,7 @@ const clip = (v, n = 200) => String(v || '').trim().slice(0, n);
 async function lead(req, env) {
   if (req.method !== 'POST') return json({ ok: false }, 405);
   const origin = req.headers.get('Origin') || '';
-  if (origin && !/^https:\/\/((www\.)?(worker\.ar|workermkt\.com)|[a-z0-9-]+\.gabriel-256\.workers\.dev)$/.test(origin)) return json({ ok: false }, 403);
+  if (!/^https:\/\/((www\.)?(worker\.ar|workermkt\.com)|[a-z0-9-]+\.gabriel-256\.workers\.dev)$/.test(origin)) return json({ ok: false }, 403);
   let b; try { b = await req.json(); } catch { return json({ ok: false, error: 'json' }, 400); }
   const via = b.via === 'mail' ? 'mail' : 'wa';
   const lang = b.lang === 'en' ? 'en' : 'es';
@@ -49,10 +49,16 @@ async function lead(req, env) {
   if (email) contact.email = email;
   if (phone) contact.phone = phone;
   if (lang === 'es') contact.country = 'AR';
-  const up = await fetch(GHL + '/contacts/upsert', { method: 'POST', headers: H, body: JSON.stringify(contact) });
-  const upJ = await up.json().catch(() => ({}));
-  const id = upJ.contact && upJ.contact.id;
-  if (!up.ok || !id) { console.log('ghl upsert', up.status, JSON.stringify(upJ).slice(0, 300)); return json({ ok: false, error: 'crm' }, 502); }
+  // Si el contacto ya existe no se pisan sus campos: solo se suman tags y nota (el form es publico).
+  const dq = new URLSearchParams({ locationId: LOCATION }); if (email) dq.set('email', email); else dq.set('number', phone);
+  const dup = await fetch(GHL + '/contacts/search/duplicate?' + dq, { headers: H }).then(r => r.json()).catch(() => ({}));
+  let id = dup.contact && dup.contact.id;
+  if (!id) {
+    const up = await fetch(GHL + '/contacts/', { method: 'POST', headers: H, body: JSON.stringify(contact) });
+    const upJ = await up.json().catch(() => ({}));
+    id = (upJ.contact && upJ.contact.id) || (upJ.meta && upJ.meta.contactId);
+    if (!id) { console.log('ghl create', up.status, JSON.stringify(upJ).slice(0, 300)); return json({ ok: false, error: 'crm' }, 502); }
+  }
   const tags = ['web-diagnostico', via === 'mail' ? 'web-mail' : 'web-whatsapp'];
   const note = ['Formulario de diagnóstico en worker.ar (' + lang + ')', 'Canal elegido: ' + (via === 'mail' ? 'mail' : 'WhatsApp'), 'Web: ' + web, 'Inversión mensual: ' + inv,
     b.page ? 'Página: ' + clip(b.page) : '', b.ref ? 'Referrer: ' + clip(b.ref) : ''].filter(Boolean).join('\n');

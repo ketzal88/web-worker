@@ -26,3 +26,6 @@
   Cache-Control: public, max-age=3600
 /llms*.txt
   Cache-Control: public, max-age=3600
+/demos/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=300

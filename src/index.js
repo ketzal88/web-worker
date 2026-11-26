@@ -162,14 +162,14 @@ const bajaPage = (status, body) => new Response(
 
 async function baja(req, env) {
   if (req.method !== 'GET' && req.method !== 'POST') return new Response(null, { status: 405, headers: { Allow: 'GET, POST' } });
-  if (!env.NEWSLETTER_SECRET) return bajaPage(500, '<p>Hubo un problema de configuración. Escribinos a hola@worker.ar.</p>');
+  if (!env.NEWSLETTER_SECRET) return bajaPage(500, '<p>Hubo un problema de configuración. Respondé cualquier mail de la newsletter con la palabra BAJA.</p>');
   const q = new URL(req.url).searchParams;
   const c = q.get('c'), t = q.get('t');
   if (!(await verifyBaja(env.NEWSLETTER_SECRET, c, t))) return bajaPage(400, '<p>El link no es válido.</p>');
   if (req.method === 'GET') {
     return bajaPage(200, '<p>Vas a dejar de recibir la newsletter de Worker.</p><form method="POST" action="/api/baja?c=' + c + '&amp;t=' + t + '"><button type="submit">Confirmar baja</button></form>');
   }
-  const fail = () => bajaPage(502, '<p>No pudimos procesar la baja. Escribinos a hola@worker.ar y la hacemos nosotros.</p>');
+  const fail = () => bajaPage(502, '<p>No pudimos procesar la baja. Respondé cualquier mail de la newsletter con la palabra BAJA y la hacemos nosotros.</p>');
   try {
     const r = await ghl(env, '/contacts/' + c, { method: 'PUT', body: JSON.stringify({ dndSettings: { Email: { status: 'active', message: 'Baja newsletter' } } }) });
     if (!r.ok) { console.error('ghl baja dnd fallo', r.status); return fail(); }

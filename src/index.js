@@ -132,10 +132,57 @@ async function lead(req, env) {
   return json(tagsOk && noteOk ? { ok: true } : { ok: true, partial: true });
 }
 
+// Baja de la newsletter. token = HMAC-SHA256(NEWSLETTER_SECRET, contactId) en base64url sin padding, 22 caracteres.
+const TOKEN_LEN = 22;
+const CONTACT_RE = /^[A-Za-z0-9]{1,64}$/;
+
+export async function signBaja(secret, contactId) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sig = new Uint8Array(await crypto.subtle.sign('HMAC', key, enc.encode(contactId)));
+  let bin = '';
+  for (const byte of sig) bin += String.fromCharCode(byte);
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '').slice(0, TOKEN_LEN);
+}
+
+export async function verifyBaja(secret, contactId, token) {
+  if (typeof contactId !== 'string' || typeof token !== 'string' || !CONTACT_RE.test(contactId) || token.length !== TOKEN_LEN) return false;
+  const expected = await signBaja(secret, contactId);
+  let diff = expected.length ^ token.length;
+  for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ token.charCodeAt(i);
+  return diff === 0;
+}
+
+const bajaPage = (status, body) => new Response(
+  '<!doctype html><html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">'
+  + '<title>Newsletter de Worker</title><style>body{margin:0;background:#fff;color:#111;font:18px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}'
+  + 'main{max-width:480px;margin:15vh auto 0;padding:0 24px}button{margin-top:16px;padding:12px 24px;border:0;border-radius:6px;background:#111;color:#fff;font:inherit;cursor:pointer}</style></head>'
+  + '<body><main>' + body + '</main></body></html>',
+  { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
+
+async function baja(req, env) {
+  if (req.method !== 'GET' && req.method !== 'POST') return new Response(null, { status: 405, headers: { Allow: 'GET, POST' } });
+  if (!env.NEWSLETTER_SECRET) return bajaPage(500, '<p>Hubo un problema de configuración. Escribinos a hola@worker.ar.</p>');
+  const q = new URL(req.url).searchParams;
+  const c = q.get('c'), t = q.get('t');
+  if (!(await verifyBaja(env.NEWSLETTER_SECRET, c, t))) return bajaPage(400, '<p>El link no es válido.</p>');
+  if (req.method === 'GET') {
+    return bajaPage(200, '<p>Vas a dejar de recibir la newsletter de Worker.</p><form method="POST" action="/api/baja?c=' + c + '&amp;t=' + t + '"><button type="submit">Confirmar baja</button></form>');
+  }
+  const fail = () => bajaPage(502, '<p>No pudimos procesar la baja. Escribinos a hola@worker.ar y la hacemos nosotros.</p>');
+  try {
+    const r = await ghl(env, '/contacts/' + c, { method: 'PUT', body: JSON.stringify({ dndSettings: { Email: { status: 'active', message: 'Baja newsletter' } } }) });
+    if (!r.ok) { console.error('ghl baja dnd fallo', r.status); return fail(); }
+  } catch { console.error('ghl baja dnd fallo', 'error'); return fail(); }
+  if (!(await ghlPost(env, '/contacts/' + c + '/tags', { tags: ['newsletter-baja'] }, 'baja tag'))) return fail();
+  return bajaPage(200, '<p>Listo, no te vamos a mandar más la newsletter.</p>');
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === '/api/lead') return lead(req, env);
+    if (url.pathname === '/api/baja') return baja(req, env);
 
     // Archivos por host: sitemap y llms (el build genera una version por idioma).
     const enHost = url.hostname.endsWith('workermkt.com');

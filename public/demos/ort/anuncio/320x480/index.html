@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="es">
+<head><script>window.open=function(u){try{parent.postMessage({ortCTA:String(u)},"*")}catch(e){}return null};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=320, initial-scale=1">
+<meta name="ad.size" content="width=320,height=480">
+<title>ORT | Test vocacional 320x480</title>
+<script>
+/* Destino del anuncio. Google Ads y DV360 reemplazan esta variable al subir el
+   ZIP. Para probar en local o en otra plataforma, se cambia solo esta linea. */
+var clickTag = "https://test-vocacional-ort.vercel.app/test";
+</script>
+<style>
+:root{--w:320px;--h:480px;--fs:15px}
+/*
+ * Estilos del anuncio. Todo en em: el tamaño base (--fs) lo fija cada formato
+ * en build.mjs, asi un mismo CSS sirve para 300x250 y para 1080x1920.
+ * Solo se animan transform y opacity.
+ * Sin fuentes externas: Jost y Open Sans (las de ORT) no se pueden cargar en un
+ * anuncio sin pedidos de red, asi que se usa la fuente del sistema.
+ * --vivo (#0066FF) es para fondos: sobre --navy no da contraste como texto,
+ * por eso el texto de acento usa --cielo.
+ */
+:root {
+  --azul: #004b93;
+  --navy: #002b66;
+  --vivo: #0066ff;
+  --cielo: #8db8ff;
+  --texto: #2d3748;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  background: var(--navy);
+}
+
+#ad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  color: #fff;
+  font:
+    600 var(--fs) / 1.2 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background:
+    radial-gradient(120% 70% at 100% 0%, rgba(0, 75, 147, 0.6), transparent 62%),
+    radial-gradient(90% 50% at 0% 100%, rgba(0, 102, 255, 0.18), transparent 60%),
+    var(--navy);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Cabecera: logo (blanco, sobre azul) y progreso */
+.head {
+  display: flex;
+  background: var(--azul);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 1em;
+}
+
+.logo {
+  display: block;
+  height: 2.2em;
+  width: auto;
+}
+
+.prog {
+  display: flex;
+  gap: 0.35em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.prog.on {
+  opacity: 1;
+}
+
+.prog i {
+  position: relative;
+  display: block;
+  width: 1.7em;
+  height: 0.38em;
+  overflow: hidden;
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.prog i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.35s ease;
+}
+
+.prog i.done::after {
+  transform: scaleX(1);
+}
+
+/* Pantallas */
+.stage {
+  position: relative;
+  flex: 1;
+}
+
+.scr {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8em;
+  padding: 0.6em 1.1em 1.1em;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(8%);
+  pointer-events: none;
+  transition:
+    opacity 0.25s,
+    transform 0.25s,
+    visibility 0s 0.25s;
+}
+
+.scr.gone {
+  transform: translateX(-8%);
+}
+
+.scr.on {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+/* Entrada escalonada de los bloques de cada pantalla */
+.scr.on .in {
+  animation: up 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(0.7em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kicker {
+  color: var(--cielo);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.h {
+  font-size: 1.7em;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.h em {
+  color: var(--cielo);
+  font-style: normal;
+}
+
+.q {
+  font-size: 1.3em;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.sub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Cuatro iconos de las areas (solo en formatos altos) */
+.trio {
+  display: flex;
+  gap: 0.6em;
+}
+
+.trio span {
+  display: grid;
+  place-items: center;
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cielo);
+}
+
+.ico {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Botones */
+.cta {
+  align-self: flex-start;
+  padding: 0.85em 1.6em;
+  border-radius: 99em;
+  background: var(--vivo);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 800;
+  transition: transform 0.15s;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: scale(1.04);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
+
+.chips {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82em;
+  font-weight: 600;
+}
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 0.8em 1em;
+  border-radius: 0.9em;
+  background: #fff;
+  color: var(--texto);
+  font-size: 1.05em;
+  font-weight: 700;
+  text-align: left;
+  transition:
+    transform 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.opt .ico {
+  flex: none;
+  width: 1.9em;
+  height: 1.9em;
+  padding: 0.35em;
+  border-radius: 0.6em;
+  background: rgba(0, 75, 147, 0.12);
+  color: var(--azul);
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.opt:hover,
+.opt:focus-visible {
+  transform: scale(1.025);
+  background: var(--azul);
+  color: #fff;
+}
+
+.opt:hover .ico,
+.opt:focus-visible .ico {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.opt.picked {
+  transform: scale(0.97);
+  background: var(--vivo);
+  color: #fff;
+}
+
+.opt.picked .ico {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.again {
+  align-self: flex-start;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82em;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 3.4em;
+  height: 3.4em;
+  border-radius: 50%;
+  background: var(--azul);
+  color: #fff;
+}
+
+.badge .ico {
+  width: 1.9em;
+  height: 1.9em;
+}
+
+/* Invitacion: tras unos segundos sin interaccion, lo que hay que tocar se mueve */
+.nudge .scr.on .pri {
+  animation: nudge 0.9s ease-in-out 2;
+}
+
+.nudge .scr.on .pri:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.nudge .scr.on .pri:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.nudge .scr.on .pri:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: none;
+  }
+  35% {
+    transform: scale(1.05);
+  }
+  65% {
+    transform: scale(0.99);
+  }
+}
+
+/* ---- 300x250: opciones en grilla de 2x2, todo mas compacto ---- */
+.s300x250 .head {
+  padding: 0.4em 0.9em;
+}
+
+.s300x250 .logo {
+  height: 1.9em;
+}
+
+.s300x250 .scr {
+  gap: 0.6em;
+  padding: 0.3em 0.9em 0.8em;
+}
+
+.s300x250 .trio {
+  display: none;
+}
+
+.s300x250 .h {
+  font-size: 1.55em;
+}
+
+.s300x250 .q {
+  font-size: 1.2em;
+}
+
+.s300x250 .opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4em;
+}
+
+.s300x250 .opt {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4em;
+  min-width: 0;
+  padding: 0.4em 0.5em;
+  font-size: 0.8em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.s300x250 .opt .ico {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0.25em;
+}
+
+.s300x250 .badge,
+.s300x250 .again {
+  display: none;
+}
+
+/* ---- 1080x1920: zonas seguras de Stories (arriba y abajo se tapan con la UI) ---- */
+.s1080x1920 .head {
+  padding-top: 4.6em;
+}
+
+.s1080x1920 .stage {
+  margin-bottom: 5.8em;
+}
+
+.s1080x1920 .scr {
+  gap: 1.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="ad" class="s320x480">
+  <header class="head">
+    <img class="logo" alt="ORT Argentina" width="260" height="150" src="data:image/png;base64,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">
+    <div class="prog" id="prog" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+  <main class="stage" id="stage">
+    <section class="scr on" id="inicio">
+      <div class="trio in" style="--i:0" aria-hidden="true">
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12L4 7.5M12 12v9"/></svg></span>
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 001.3 2h12.4a1.5 1.5 0 001.3-2L14 9V3M7.5 15h9"/></svg></span>
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 18a3 3 0 11-3-3 3 3 0 013 3zM20 16a3 3 0 11-3-3 3 3 0 013 3z"/></svg></span>
+      </div>
+      <p class="kicker in" style="--i:1">Test vocacional</p>
+      <h1 class="h in" style="--i:2">¿Qué tecnicatura <em>va con vos</em>?</h1>
+      <p class="sub in" style="--i:3">3 preguntas, 20 segundos.</p>
+      <div class="in" style="--i:4"><button type="button" class="cta pri" id="empezar">Empezar</button></div>
+      <p class="chips in" style="--i:5">Terciario · 4 tecnicaturas</p>
+    </section>
+  </main>
+</div>
+<script>
+/*
+ * Logica del anuncio: gancho, 3 preguntas de un toque y resultado con CTA.
+ * Sin dependencias ni pedidos de red. La URL de destino es `clickTag`, que se
+ * define aparte en el <head> (var clickTag = "...").
+ *
+ * El orden de las opciones es siempre el mismo en las 3 preguntas:
+ * 0 = Tecnologia, 1 = Diseño, 2 = Ciencia, 3 = Musica. El codigo `pre`
+ * que se manda al test son los 3 indices elegidos (ej. "021"). Si se cambia el
+ * orden o el texto de una pregunta, hay que cambiar tambien src/lib/pre.ts.
+ */
+(function () {
+  "use strict";
+
+  var ICONOS = [
+    // Tecnologia: </>
+    '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+    // Diseño: cubo 3D
+    '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM12 12l8-4.5M12 12L4 7.5M12 12v9"/>',
+    // Ciencia: matraz
+    '<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 001.3 2h12.4a1.5 1.5 0 001.3-2L14 9V3M7.5 15h9"/>',
+    // Musica: nota
+    '<path d="M9 18V5l11-2v13M9 18a3 3 0 11-3-3 3 3 0 013 3zM20 16a3 3 0 11-3-3 3 3 0 013 3z"/>',
+  ];
+
+  var AREAS = [
+    {
+      nombre: "Tecnología",
+      carreras: "Analista de Sistemas · 2 años · 100% online",
+    },
+    {
+      nombre: "Diseño",
+      carreras: "Diseño Digital 3D + IA · 100% online",
+    },
+    {
+      nombre: "Ciencia",
+      carreras: "Biotecnología · presencial en Sede Almagro",
+    },
+    {
+      nombre: "Música",
+      carreras: "Sonido y Producción Musical · presencial en Sede Almagro",
+    },
+  ];
+
+  var PREGUNTAS = [
+    {
+      t: "¿Qué disfrutás más?",
+      o: [
+        "Resolver problemas",
+        "Diseñar objetos",
+        "Analizar la naturaleza",
+        "Escuchar música",
+      ],
+    },
+    {
+      t: "¿Qué se te da mejor?",
+      o: [
+        "Descomponer problemas",
+        "Armar modelos",
+        "Analizar muestras",
+        "Distinguir instrumentos",
+      ],
+    },
+    {
+      t: "¿Qué te engancha más?",
+      o: [
+        "Usar estadísticas",
+        "Dibujar planos",
+        "Estudiar biología",
+        "Tocar un instrumento",
+      ],
+    },
+  ];
+
+  var UTM = "utm_source=display&utm_medium=rich_media&utm_campaign=test_vocacional";
+  var ESPERA_MS = 6000;
+
+  var ad = document.getElementById("ad");
+  var stage = document.getElementById("stage");
+  var prog = document.getElementById("prog");
+  var segmentos = prog.getElementsByTagName("i");
+
+  var respuestas = [];
+  var actual = null;
+  var ocupado = false;
+  var timer = 0;
+  var pantallaResultado = null;
+  var pantallas;
+
+  function icono(i) {
+    return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + ICONOS[i] + "</svg>";
+  }
+
+  function pantalla(html) {
+    var s = document.createElement("section");
+    s.className = "scr";
+    s.innerHTML = html;
+    stage.appendChild(s);
+    return s;
+  }
+
+  function mostrar(s) {
+    if (actual) {
+      actual.className = "scr gone";
+    }
+    s.className = "scr on";
+    actual = s;
+    armarInvitacion();
+  }
+
+  function destino() {
+    var url = String(window.clickTag || "");
+    var sep = url.indexOf("?") === -1 ? "?" : "&";
+    return url + sep + "pre=" + respuestas.join("") + "&" + UTM;
+  }
+
+  function area() {
+    // gana la mas elegida; si las 3 son distintas, la primera que elegiste
+    var cuenta = [0, 0, 0, 0];
+    var i;
+    for (i = 0; i < respuestas.length; i++) cuenta[respuestas[i]]++;
+    var mejor = respuestas[0];
+    for (i = 1; i < respuestas.length; i++) {
+      if (cuenta[respuestas[i]] > cuenta[mejor]) mejor = respuestas[i];
+    }
+    return mejor;
+  }
+
+  function pantallaPregunta(n) {
+    var q = PREGUNTAS[n];
+    var botones = "";
+    for (var i = 0; i < 4; i++) {
+      botones +=
+        '<button type="button" class="opt pri" data-i="' + i + '">' +
+        icono(i) + "<span>" + q.o[i] + "</span></button>";
+    }
+    var s = pantalla(
+      '<p class="kicker in" style="--i:0">Pregunta ' + (n + 1) + " de 3</p>" +
+      '<h2 class="q in" style="--i:1">' + q.t + "</h2>" +
+      '<div class="opts in" style="--i:2">' + botones + "</div>"
+    );
+    s.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest(".opt") : null;
+      if (!b || ocupado) return;
+      elegir(n, Number(b.getAttribute("data-i")), b);
+    });
+    return s;
+  }
+
+  function elegir(n, i, boton) {
+    ocupado = true;
+    respuestas[n] = i;
+    boton.className += " picked";
+    segmentos[n].className = "done";
+    setTimeout(function () {
+      ocupado = false;
+      // pantallas[0] es el gancho: la pregunta n vive en pantallas[n + 1]
+      mostrar(n < 2 ? pantallas[n + 2] : resultado());
+    }, 260);
+  }
+
+  function resultado() {
+    var a = area();
+    var d = AREAS[a];
+    var s = pantalla(
+      '<div class="badge in" style="--i:0">' + icono(a) + "</div>" +
+      '<p class="kicker in" style="--i:1">Tu perfil apunta a</p>' +
+      '<h2 class="h in" style="--i:2"><em>' + d.nombre + "</em></h2>" +
+      '<p class="sub in" style="--i:3">' + d.carreras + "</p>" +
+      '<div class="in" style="--i:4"><button type="button" class="cta pri" id="ir">Hacé el test completo</button></div>' +
+      '<p class="chips in" style="--i:5">Terciario · 4 tecnicaturas</p>' +
+      '<button type="button" class="again in" style="--i:6" id="otra">Volver a empezar</button>'
+    );
+    s.querySelector("#ir").addEventListener("click", function () {
+      window.open(destino(), "_blank");
+    });
+    s.querySelector("#otra").addEventListener("click", reiniciar);
+    pantallaResultado = s;
+    return s;
+  }
+
+  function reiniciar() {
+    respuestas = [];
+    for (var i = 0; i < segmentos.length; i++) segmentos[i].className = "";
+    prog.className = "prog";
+    // las preguntas se rearman para sacar el estado "picked"
+    for (var n = 1; n <= 3; n++) {
+      stage.removeChild(pantallas[n]);
+      pantallas[n] = pantallaPregunta(n - 1);
+    }
+    var vieja = pantallaResultado;
+    pantallaResultado = null;
+    mostrar(pantallas[0]);
+    // se saca despues de la transicion de salida
+    setTimeout(function () {
+      if (vieja && vieja.parentNode) stage.removeChild(vieja);
+    }, 400);
+  }
+
+  // Invitacion: si pasan ESPERA_MS sin tocar nada, lo principal se mueve un poco.
+  function armarInvitacion() {
+    clearTimeout(timer);
+    ad.className = ad.className.replace(" nudge", "");
+    timer = setTimeout(function () {
+      ad.className += " nudge";
+      timer = setTimeout(armarInvitacion, 2600);
+    }, ESPERA_MS);
+  }
+
+  pantallas = [document.getElementById("inicio")];
+  pantallas[1] = pantallaPregunta(0);
+  pantallas[2] = pantallaPregunta(1);
+  pantallas[3] = pantallaPregunta(2);
+
+  document.getElementById("empezar").addEventListener("click", function () {
+    prog.className = "prog on";
+    mostrar(pantallas[1]);
+  });
+
+  ["pointerdown", "pointermove", "touchstart", "keydown"].forEach(function (ev) {
+    ad.addEventListener(ev, armarInvitacion, { passive: true });
+  });
+
+  actual = pantallas[0];
+  actual.className = "scr on";
+  armarInvitacion();
+})();
+
+</script>
+</body>
+</html>

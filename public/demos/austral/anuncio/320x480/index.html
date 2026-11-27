@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="es">
+<head><script>window.open=function(u){try{parent.postMessage({australCTA:String(u)},"*")}catch(e){}return null};</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=320, initial-scale=1">
+<meta name="ad.size" content="width=320,height=480">
+<title>Universidad Austral | Test vocacional 320x480</title>
+<script>
+/* Destino del anuncio. Google Ads y DV360 reemplazan esta variable al subir el
+   ZIP. Para probar en local o en otra plataforma, se cambia solo esta linea. */
+var clickTag = "https://test-vocacional-austral.vercel.app/test";
+</script>
+<style>
+:root{--w:320px;--h:480px;--fs:15px}
+/*
+ * Estilos del anuncio. Todo en em: el tamaño base (--fs) lo fija cada formato
+ * en build.mjs, asi un mismo CSS sirve para 300x250 y para 1080x1920.
+ * Solo se animan transform y opacity.
+ * Sin fuentes externas: Montserrat (la de la Universidad Austral) no se puede cargar en un anuncio
+ * sin pedidos de red, asi que se usa la fuente del sistema.
+ * --cian guarda el nombre viejo: ahora es el amarillo de acento (solo como acento
+ * o como boton con texto azul oscuro, nunca texto amarillo sobre blanco).
+ */
+:root {
+  --azul: #0f29a2;
+  --navy: #00146e;
+  --cian: #fec524;
+  --texto: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  background: var(--navy);
+}
+
+#ad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  color: #fff;
+  font:
+    600 var(--fs) / 1.2 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background:
+    radial-gradient(120% 70% at 100% 0%, rgba(15, 41, 162, 0.7), transparent 62%),
+    radial-gradient(90% 50% at 0% 100%, rgba(254, 197, 36, 0.14), transparent 60%),
+    var(--navy);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Cabecera: logo (a color, sobre blanco) y progreso */
+.head {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 1em;
+}
+
+.logo {
+  display: block;
+  height: 2.2em;
+  width: auto;
+}
+
+.prog {
+  display: flex;
+  gap: 0.35em;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.prog.on {
+  opacity: 1;
+}
+
+.prog i {
+  position: relative;
+  display: block;
+  width: 1.7em;
+  height: 0.38em;
+  overflow: hidden;
+  border-radius: 1em;
+  background: rgba(0, 20, 110, 0.18);
+}
+
+.prog i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cian);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.35s ease;
+}
+
+.prog i.done::after {
+  transform: scaleX(1);
+}
+
+/* Pantallas */
+.stage {
+  position: relative;
+  flex: 1;
+}
+
+.scr {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8em;
+  padding: 0.6em 1.1em 1.1em;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(8%);
+  pointer-events: none;
+  transition:
+    opacity 0.25s,
+    transform 0.25s,
+    visibility 0s 0.25s;
+}
+
+.scr.gone {
+  transform: translateX(-8%);
+}
+
+.scr.on {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+/* Entrada escalonada de los bloques de cada pantalla */
+.scr.on .in {
+  animation: up 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(0.7em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kicker {
+  color: var(--cian);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.h {
+  font-size: 1.7em;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.h em {
+  color: var(--cian);
+  font-style: normal;
+}
+
+.q {
+  font-size: 1.3em;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.sub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Tres iconos de las areas (solo en formatos altos) */
+.trio {
+  display: flex;
+  gap: 0.6em;
+}
+
+.trio span {
+  display: grid;
+  place-items: center;
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cian);
+}
+
+.ico {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Botones */
+.cta {
+  align-self: flex-start;
+  padding: 0.85em 1.6em;
+  border-radius: 99em;
+  background: var(--cian);
+  color: var(--navy);
+  font-size: 1.1em;
+  font-weight: 800;
+  transition: transform 0.15s;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: scale(1.04);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
+
+.chips {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82em;
+  font-weight: 600;
+}
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 0.8em 1em;
+  border-radius: 0.9em;
+  background: #fff;
+  color: var(--texto);
+  font-size: 1.05em;
+  font-weight: 700;
+  text-align: left;
+  transition:
+    transform 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.opt .ico {
+  flex: none;
+  width: 1.9em;
+  height: 1.9em;
+  padding: 0.35em;
+  border-radius: 0.6em;
+  background: rgba(15, 41, 162, 0.12);
+  color: var(--azul);
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.opt:hover,
+.opt:focus-visible {
+  transform: scale(1.025);
+  background: var(--azul);
+  color: #fff;
+}
+
+.opt:hover .ico,
+.opt:focus-visible .ico {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.opt.picked {
+  transform: scale(0.97);
+  background: var(--cian);
+  color: var(--navy);
+}
+
+.opt.picked .ico {
+  background: rgba(0, 20, 110, 0.15);
+  color: var(--navy);
+}
+
+.again {
+  align-self: flex-start;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82em;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 3.4em;
+  height: 3.4em;
+  border-radius: 50%;
+  background: var(--azul);
+  color: #fff;
+}
+
+.badge .ico {
+  width: 1.9em;
+  height: 1.9em;
+}
+
+/* Invitacion: tras unos segundos sin interaccion, lo que hay que tocar se mueve */
+.nudge .scr.on .pri {
+  animation: nudge 0.9s ease-in-out 2;
+}
+
+.nudge .scr.on .pri:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.nudge .scr.on .pri:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: none;
+  }
+  35% {
+    transform: scale(1.05);
+  }
+  65% {
+    transform: scale(0.99);
+  }
+}
+
+/* ---- 300x250: opciones en fila, todo mas compacto ---- */
+.s300x250 .head {
+  padding: 0.4em 0.9em;
+}
+
+.s300x250 .logo {
+  height: 1.9em;
+}
+
+.s300x250 .scr {
+  gap: 0.6em;
+  padding: 0.3em 0.9em 0.8em;
+}
+
+.s300x250 .trio {
+  display: none;
+}
+
+.s300x250 .h {
+  font-size: 1.55em;
+}
+
+.s300x250 .q {
+  font-size: 1.2em;
+}
+
+.s300x250 .opts {
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.s300x250 .opt {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  min-width: 0;
+  padding: 0.7em 0.3em;
+  font-size: 0.95em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.s300x250 .badge,
+.s300x250 .again {
+  display: none;
+}
+
+/* ---- 1080x1920: zonas seguras de Stories (arriba y abajo se tapan con la UI) ---- */
+.s1080x1920 .head {
+  padding-top: 4.6em;
+}
+
+.s1080x1920 .stage {
+  margin-bottom: 5.8em;
+}
+
+.s1080x1920 .scr {
+  gap: 1.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="ad" class="s320x480">
+  <header class="head">
+    <img class="logo" alt="Universidad Austral" width="316" height="114" src="data:image/png;base64,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">
+    <div class="prog" id="prog" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+  <main class="stage" id="stage">
+    <section class="scr on" id="inicio">
+      <div class="trio in" style="--i:0" aria-hidden="true">
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6M2 20h20"/></svg></span>
+        <span><svg class="ico" viewBox="0 0 24 24"><path d="M3 10v4a1 1 0 001 1h3l8 4V5L7 9H4a1 1 0 00-1 1zM19 9a4 4 0 010 6"/></svg></span>
+      </div>
+      <p class="kicker in" style="--i:1">Test vocacional</p>
+      <h1 class="h in" style="--i:2">¿Qué carrera <em>va con vos</em>?</h1>
+      <p class="sub in" style="--i:3">3 preguntas, 20 segundos.</p>
+      <div class="in" style="--i:4"><button type="button" class="cta pri" id="empezar">Empezar</button></div>
+      <p class="chips in" style="--i:5">17 carreras de grado</p>
+    </section>
+  </main>
+</div>
+<script>
+/*
+ * Logica del anuncio: gancho, 3 preguntas de un toque y resultado con CTA.
+ * Sin dependencias ni pedidos de red. La URL de destino es `clickTag`, que se
+ * define aparte en el <head> (var clickTag = "...").
+ *
+ * El orden de las opciones es siempre el mismo en las 3 preguntas:
+ * 0 = Ingenieria y Datos, 1 = Negocios, 2 = Comunicacion y Diseño. El codigo `pre`
+ * que se manda al test son los 3 indices elegidos (ej. "021"). Si se cambia el
+ * orden o el texto de una pregunta, hay que cambiar tambien src/lib/pre.ts.
+ */
+(function () {
+  "use strict";
+
+  var ICONOS = [
+    // Ingenieria y Datos: </>
+    '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+    // Negocios: grafico de barras
+    '<path d="M5 20V11M12 20V4M19 20v-6M2 20h20"/>',
+    // Comunicacion y Diseño: megafono
+    '<path d="M3 10v4a1 1 0 001 1h3l8 4V5L7 9H4a1 1 0 00-1 1zM19 9a4 4 0 010 6"/>',
+  ];
+
+  var AREAS = [
+    {
+      nombre: "Ingeniería y Datos",
+      carreras: "Ingeniería Informática, IA & Datos o Ingeniería Industrial",
+    },
+    {
+      nombre: "Negocios",
+      carreras: "Administración de Empresas, Contador Público o Negocios Digitales",
+    },
+    {
+      nombre: "Comunicación y Diseño",
+      carreras: "Comunicación, Diseño o Relaciones Internacionales",
+    },
+  ];
+
+  var PREGUNTAS = [
+    {
+      t: "¿Qué se te da mejor?",
+      o: ["Resolver problemas", "Hacer cuentas", "Exponer ideas"],
+    },
+    {
+      t: "En un equipo, ¿qué hacés?",
+      o: ["Armo la solución", "Coordino al equipo", "Pongo las ideas"],
+    },
+    {
+      t: "¿Qué te engancha más?",
+      o: ["Armar y probar", "Planificar y medir", "Escribir y contar"],
+    },
+  ];
+
+  var UTM = "utm_source=display&utm_medium=rich_media&utm_campaign=test_vocacional";
+  var ESPERA_MS = 6000;
+
+  var ad = document.getElementById("ad");
+  var stage = document.getElementById("stage");
+  var prog = document.getElementById("prog");
+  var segmentos = prog.getElementsByTagName("i");
+
+  var respuestas = [];
+  var actual = null;
+  var ocupado = false;
+  var timer = 0;
+  var pantallaResultado = null;
+  var pantallas;
+
+  function icono(i) {
+    return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + ICONOS[i] + "</svg>";
+  }
+
+  function pantalla(html) {
+    var s = document.createElement("section");
+    s.className = "scr";
+    s.innerHTML = html;
+    stage.appendChild(s);
+    return s;
+  }
+
+  function mostrar(s) {
+    if (actual) {
+      actual.className = "scr gone";
+    }
+    s.className = "scr on";
+    actual = s;
+    armarInvitacion();
+  }
+
+  function destino() {
+    var url = String(window.clickTag || "");
+    var sep = url.indexOf("?") === -1 ? "?" : "&";
+    return url + sep + "pre=" + respuestas.join("") + "&" + UTM;
+  }
+
+  function area() {
+    // gana la mas elegida; si las 3 son distintas, la primera que elegiste
+    var cuenta = [0, 0, 0];
+    var i;
+    for (i = 0; i < respuestas.length; i++) cuenta[respuestas[i]]++;
+    var mejor = respuestas[0];
+    for (i = 1; i < respuestas.length; i++) {
+      if (cuenta[respuestas[i]] > cuenta[mejor]) mejor = respuestas[i];
+    }
+    return mejor;
+  }
+
+  function pantallaPregunta(n) {
+    var q = PREGUNTAS[n];
+    var botones = "";
+    for (var i = 0; i < 3; i++) {
+      botones +=
+        '<button type="button" class="opt pri" data-i="' + i + '">' +
+        icono(i) + "<span>" + q.o[i] + "</span></button>";
+    }
+    var s = pantalla(
+      '<p class="kicker in" style="--i:0">Pregunta ' + (n + 1) + " de 3</p>" +
+      '<h2 class="q in" style="--i:1">' + q.t + "</h2>" +
+      '<div class="opts in" style="--i:2">' + botones + "</div>"
+    );
+    s.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest(".opt") : null;
+      if (!b || ocupado) return;
+      elegir(n, Number(b.getAttribute("data-i")), b);
+    });
+    return s;
+  }
+
+  function elegir(n, i, boton) {
+    ocupado = true;
+    respuestas[n] = i;
+    boton.className += " picked";
+    segmentos[n].className = "done";
+    setTimeout(function () {
+      ocupado = false;
+      // pantallas[0] es el gancho: la pregunta n vive en pantallas[n + 1]
+      mostrar(n < 2 ? pantallas[n + 2] : resultado());
+    }, 260);
+  }
+
+  function resultado() {
+    var a = area();
+    var d = AREAS[a];
+    var s = pantalla(
+      '<div class="badge in" style="--i:0">' + icono(a) + "</div>" +
+      '<p class="kicker in" style="--i:1">Tu perfil apunta a</p>' +
+      '<h2 class="h in" style="--i:2"><em>' + d.nombre + "</em></h2>" +
+      '<p class="sub in" style="--i:3">' + d.carreras + "</p>" +
+      '<div class="in" style="--i:4"><button type="button" class="cta pri" id="ir">Hacé el test completo</button></div>' +
+      '<p class="chips in" style="--i:5">17 carreras de grado</p>' +
+      '<button type="button" class="again in" style="--i:6" id="otra">Volver a empezar</button>'
+    );
+    s.querySelector("#ir").addEventListener("click", function () {
+      window.open(destino(), "_blank");
+    });
+    s.querySelector("#otra").addEventListener("click", reiniciar);
+    pantallaResultado = s;
+    return s;
+  }
+
+  function reiniciar() {
+    respuestas = [];
+    for (var i = 0; i < segmentos.length; i++) segmentos[i].className = "";
+    prog.className = "prog";
+    // las preguntas se rearman para sacar el estado "picked"
+    for (var n = 1; n <= 3; n++) {
+      stage.removeChild(pantallas[n]);
+      pantallas[n] = pantallaPregunta(n - 1);
+    }
+    var vieja = pantallaResultado;
+    pantallaResultado = null;
+    mostrar(pantallas[0]);
+    // se saca despues de la transicion de salida
+    setTimeout(function () {
+      if (vieja && vieja.parentNode) stage.removeChild(vieja);
+    }, 400);
+  }
+
+  // Invitacion: si pasan ESPERA_MS sin tocar nada, lo principal se mueve un poco.
+  function armarInvitacion() {
+    clearTimeout(timer);
+    ad.className = ad.className.replace(" nudge", "");
+    timer = setTimeout(function () {
+      ad.className += " nudge";
+      timer = setTimeout(armarInvitacion, 2600);
+    }, ESPERA_MS);
+  }
+
+  pantallas = [document.getElementById("inicio")];
+  pantallas[1] = pantallaPregunta(0);
+  pantallas[2] = pantallaPregunta(1);
+  pantallas[3] = pantallaPregunta(2);
+
+  document.getElementById("empezar").addEventListener("click", function () {
+    prog.className = "prog on";
+    mostrar(pantallas[1]);
+  });
+
+  ["pointerdown", "pointermove", "touchstart", "keydown"].forEach(function (ev) {
+    ad.addEventListener(ev, armarInvitacion, { passive: true });
+  });
+
+  actual = pantallas[0];
+  actual.className = "scr on";
+  armarInvitacion();
+})();
+
+</script>
+</body>
+</html>
